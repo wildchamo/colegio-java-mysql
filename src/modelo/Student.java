@@ -23,13 +23,13 @@ public class Student {
     private String custodianMobile2;
     private String userS;
     private String passwordS;
-    private int idCitypk;
-    private int idGenderpk;
+    private int idCityfk;
+    private int idGenderfk;
 
     public Student() {
     }
 
-    public Student(String name1S, String name2S, String suname1S, String suname2S, String mobileS, String addressS, String stratumS, String institutionalEmailS, String custodianMobile1, String custodianMobile2, String userS, String passwordS, int idCitypk, int idGenderpk) {
+    public Student(String name1S, String name2S, String suname1S, String suname2S, String mobileS, String addressS, String stratumS, String institutionalEmailS, String custodianMobile1, String custodianMobile2, String userS, String passwordS, int idCityfk, int idGenderfk) {
         this.name1S = name1S;
         this.name2S = name2S;
         this.suname1S = suname1S;
@@ -42,11 +42,11 @@ public class Student {
         this.custodianMobile2 = custodianMobile2;
         this.userS = userS;
         this.passwordS = passwordS;
-        this.idCitypk = idCitypk;
-        this.idGenderpk = idGenderpk;
+        this.idCityfk = idCityfk;
+        this.idGenderfk = idGenderfk;
     }
 
-    public Student(int studentID, String name1S, String name2S, String suname1S, String suname2S, String mobileS, String addressS, String stratumS, String institutionalEmailS, String custodianMobile1, String custodianMobile2, String userS, String passwordS, int idCitypk, int idGenderpk) {
+    public Student(int studentID, String name1S, String name2S, String suname1S, String suname2S, String mobileS, String addressS, String stratumS, String institutionalEmailS, String custodianMobile1, String custodianMobile2, String userS, String passwordS, int idCityfk, int idGenderfk) {
         this.studentID = studentID;
         this.name1S = name1S;
         this.name2S = name2S;
@@ -60,8 +60,8 @@ public class Student {
         this.custodianMobile2 = custodianMobile2;
         this.userS = userS;
         this.passwordS = passwordS;
-        this.idCitypk = idCitypk;
-        this.idGenderpk = idGenderpk;
+        this.idCityfk = idCityfk;
+        this.idGenderfk = idGenderfk;
     }
 
     public int getStudentID() {
@@ -168,25 +168,25 @@ public class Student {
         this.passwordS = passwordS;
     }
 
-    public int getIdCitypk() {
-        return idCitypk;
+    public int getIdCityfk() {
+        return idCityfk;
     }
 
-    public void setIdCitypk(int idCitypk) {
-        this.idCitypk = idCitypk;
+    public void setIdCityfk(int idCityfk) {
+        this.idCityfk = idCityfk;
     }
 
-    public int getIdGenderpk() {
-        return idGenderpk;
+    public int getIdGenderfk() {
+        return idGenderfk;
     }
 
-    public void setIdGenderpk(int idGenderpk) {
-        this.idGenderpk = idGenderpk;
+    public void setIdGenderfk(int idGenderfk) {
+        this.idGenderfk = idGenderfk;
     }
 
     @Override
     public String toString() {
-        return "Student{" + "studentID=" + studentID + ", name1S=" + name1S + ", name2S=" + name2S + ", suname1S=" + suname1S + ", suname2S=" + suname2S + ", mobileS=" + mobileS + ", addressS=" + addressS + ", stratumS=" + stratumS + ", institutionalEmailS=" + institutionalEmailS + ", custodianMobile1=" + custodianMobile1 + ", custodianMobile2=" + custodianMobile2 + ", userS=" + userS + ", passwordS=" + passwordS + ", idCitypk=" + idCitypk + ", idGenderpk=" + idGenderpk + '}';
+        return "Student{" + "studentID=" + studentID + ", name1S=" + name1S + ", name2S=" + name2S + ", suname1S=" + suname1S + ", suname2S=" + suname2S + ", mobileS=" + mobileS + ", addressS=" + addressS + ", stratumS=" + stratumS + ", institutionalEmailS=" + institutionalEmailS + ", custodianMobile1=" + custodianMobile1 + ", custodianMobile2=" + custodianMobile2 + ", userS=" + userS + ", passwordS=" + passwordS + ", idCityfk=" + idCityfk + ", idGenderfk=" + idGenderfk + '}';
     }
     
     

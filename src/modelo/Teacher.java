@@ -24,13 +24,13 @@ public class Teacher {
     private String workDay;
     private String userT;
     private String passwordT;
-    private int idCitypk;
-    private int idGenderpk;
+    private int idCityfk;
+    private int idGenderfk;
 
     public Teacher() {
     }
 
-    public Teacher(String name1T, String name2T, String suname1T, String suname2T, String mobileT, String addressT, String stratumT, String institutionalEmailT, String businessPositionT, String workDay, String userT, String passwordT, int idCitypk, int idGenderpk) {
+    public Teacher(String name1T, String name2T, String suname1T, String suname2T, String mobileT, String addressT, String stratumT, String institutionalEmailT, String businessPositionT, String workDay, String userT, String passwordT, int idCityfk, int idGenderfk) {
         this.name1T = name1T;
         this.name2T = name2T;
         this.suname1T = suname1T;
@@ -43,11 +43,11 @@ public class Teacher {
         this.workDay = workDay;
         this.userT = userT;
         this.passwordT = passwordT;
-        this.idCitypk = idCitypk;
-        this.idGenderpk = idGenderpk;
+        this.idCityfk = idCityfk;
+        this.idGenderfk = idGenderfk;
     }
 
-    public Teacher(int teacherID, String name1T, String name2T, String suname1T, String suname2T, String mobileT, String addressT, String stratumT, String institutionalEmailT, String businessPositionT, String workDay, String userT, String passwordT, int idCitypk, int idGenderpk) {
+    public Teacher(int teacherID, String name1T, String name2T, String suname1T, String suname2T, String mobileT, String addressT, String stratumT, String institutionalEmailT, String businessPositionT, String workDay, String userT, String passwordT, int idCityfk, int idGenderfk) {
         this.teacherID = teacherID;
         this.name1T = name1T;
         this.name2T = name2T;
@@ -61,8 +61,8 @@ public class Teacher {
         this.workDay = workDay;
         this.userT = userT;
         this.passwordT = passwordT;
-        this.idCitypk = idCitypk;
-        this.idGenderpk = idGenderpk;
+        this.idCityfk = idCityfk;
+        this.idGenderfk = idGenderfk;
     }
 
     public int getTeacherID() {
@@ -169,25 +169,25 @@ public class Teacher {
         this.passwordT = passwordT;
     }
 
-    public int getIdCitypk() {
-        return idCitypk;
+    public int getIdCityfk() {
+        return idCityfk;
     }
 
-    public void setIdCitypk(int idCitypk) {
-        this.idCitypk = idCitypk;
+    public void setIdCityfk(int idCityfk) {
+        this.idCityfk = idCityfk;
     }
 
-    public int getIdGenderpk() {
-        return idGenderpk;
+    public int getIdGenderfk() {
+        return idGenderfk;
     }
 
-    public void setIdGenderpk(int idGenderpk) {
-        this.idGenderpk = idGenderpk;
+    public void setIdGenderfk(int idGenderfk) {
+        this.idGenderfk = idGenderfk;
     }
 
     @Override
     public String toString() {
-        return "Teacher{" + "teacherID=" + teacherID + ", name1T=" + name1T + ", name2T=" + name2T + ", suname1T=" + suname1T + ", suname2T=" + suname2T + ", mobileT=" + mobileT + ", addressT=" + addressT + ", stratumT=" + stratumT + ", institutionalEmailT=" + institutionalEmailT + ", businessPositionT=" + businessPositionT + ", workDay=" + workDay + ", userT=" + userT + ", passwordT=" + passwordT + ", idCitypk=" + idCitypk + ", idGenderpk=" + idGenderpk + '}';
+        return "Teacher{" + "teacherID=" + teacherID + ", name1T=" + name1T + ", name2T=" + name2T + ", suname1T=" + suname1T + ", suname2T=" + suname2T + ", mobileT=" + mobileT + ", addressT=" + addressT + ", stratumT=" + stratumT + ", institutionalEmailT=" + institutionalEmailT + ", businessPositionT=" + businessPositionT + ", workDay=" + workDay + ", userT=" + userT + ", passwordT=" + passwordT + ", idCityfk=" + idCityfk + ", idGenderfk=" + idGenderfk + '}';
     }
 
 
