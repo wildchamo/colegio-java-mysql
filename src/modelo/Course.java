@@ -9,22 +9,22 @@ package modelo;
  *
  * @author wild.chamo
  */
-public class course {
+public class Course {
     private int courseID;
     private String nameC;
     private String classroom;
     private String imgCourse;
 
-    public course() {
+    public Course() {
     }
 
-    public course(String nameC, String classroom, String imgCourse) {
+    public Course(String nameC, String classroom, String imgCourse) {
         this.nameC = nameC;
         this.classroom = classroom;
         this.imgCourse = imgCourse;
     }
 
-    public course(int courseID, String nameC, String classroom, String imgCourse) {
+    public Course(int courseID, String nameC, String classroom, String imgCourse) {
         this.courseID = courseID;
         this.nameC = nameC;
         this.classroom = classroom;
@@ -67,9 +67,5 @@ public class course {
     public String toString() {
         return "course{" + "courseID=" + courseID + ", nameC=" + nameC + ", classroom=" + classroom + ", imgCourse=" + imgCourse + '}';
     }
-    
-    
-    
-    
-    
+
 }
