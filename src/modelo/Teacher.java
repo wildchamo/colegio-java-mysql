@@ -187,7 +187,9 @@ public class Teacher {
 
     @Override
     public String toString() {
-        return "Teacher{" + "idTeacher=" + teacherID + ", name1T=" + name1T + '}';
+        return "Teacher{" + "teacherID=" + teacherID + ", name1T=" + name1T + ", name2T=" + name2T + ", suname1T=" + suname1T + ", suname2T=" + suname2T + ", mobileT=" + mobileT + ", addressT=" + addressT + ", stratumT=" + stratumT + ", institutionalEmailT=" + institutionalEmailT + ", businessPositionT=" + businessPositionT + ", workDay=" + workDay + ", userT=" + userT + ", passwordT=" + passwordT + ", idCitypk=" + idCitypk + ", idGenderpk=" + idGenderpk + '}';
     }
+
+
 
 }
