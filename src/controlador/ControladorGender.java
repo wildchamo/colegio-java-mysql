@@ -11,5 +11,11 @@ import modelo.Gender;
  * @author wild.chamo
  */
 public class ControladorGender {
-    
+        public boolean insertCity(Gender objg) {
+        boolean t=false;
+        String sql="insert into genders(nombreGender) value('"+objg.getNameG()+"');";
+        BaseDatos objbd=new BaseDatos();
+        t=objbd.ejecutarSQL(sql);
+        return t;              
+    }
 }

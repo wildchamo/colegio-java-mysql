@@ -18,8 +18,6 @@ public class ControladorCity {
         String sql="insert into cities(nombreCity) value('"+objc.getNameC()+"');";
         BaseDatos objbd=new BaseDatos();
         t=objbd.ejecutarSQL(sql);
-        return t;
-        
-        
+        return t;              
     }
 }
