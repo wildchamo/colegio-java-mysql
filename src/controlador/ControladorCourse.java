@@ -13,9 +13,9 @@ import modelo.Course;
 public class ControladorCourse {
         public boolean insertCourse(Course objc) {
         boolean t=false;
-        String sql="insert into courses(nombreCourse,classroom,imgCourse) value(?,?,?);";
+        String sql="insert into courses(nameCourse,classroom,imgCourse) value(?,?,?);";
         Course objbc=new Course();
         t=objbc.insertCourse(sql,objc);
-        return t;              
+        return t;
     }
 }

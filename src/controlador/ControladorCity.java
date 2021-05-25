@@ -15,7 +15,7 @@ public class ControladorCity {
     
     public boolean insertCity(City objc) {
         boolean t=false;
-        String sql="insert into cities(nombreCity) value('"+objc.getNameC()+"');";
+        String sql="insert into cities(nameC) value('"+objc.getNameC()+"');";
         BaseDatos objbd=new BaseDatos();
         t=objbd.ejecutarSQL(sql);
         return t;              

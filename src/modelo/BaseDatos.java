@@ -35,9 +35,9 @@ public class BaseDatos {
     
     public boolean crearConexion(){
        boolean t=false;
-       String url="jdbc:mysql://localhost:3306/amazonprime";
-       String user="amazonadmin";
-       String pass="123456";
+       String url="jdbc:mysql://localhost:3306/escuela";
+       String user="adminescuela";
+       String pass="1234";
         try {
             
             
