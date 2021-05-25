@@ -93,6 +93,9 @@ public class Course {
                 pst.setString(1, objc.getNameC());
                 pst.setString(2, objc.getClassroom());
                 pst.setBinaryStream(3, fis, (int) file.length());
+                pst.executeUpdate();
+             //   objbd.getConexion().commit();
+                t=true;
             } catch (SQLException ex) {
                 Logger.getLogger(Course.class.getName()).log(Level.SEVERE, null, ex);
             } catch (FileNotFoundException ex) {
