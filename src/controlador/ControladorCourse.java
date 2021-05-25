@@ -4,8 +4,10 @@
  * and open the template in the editor.
  */
 package controlador;
+import java.util.LinkedList;
 import modelo.BaseDatos;
 import modelo.Course;
+
 /**
  *
  * @author wild.chamo
@@ -17,5 +19,15 @@ public class ControladorCourse {
         Course objbc=new Course();
         t=objbc.insertCourse(sql,objc);
         return t;
-    }
+        } 
+        
+        public LinkedList<Course> consultarCursos() {
+        LinkedList<Course> lg=null;
+        String sql="select * from courses;";
+        Course objc=new Course();
+        lg=objc.consultarCursos(sql);
+        
+        return lg;
+    }   
+    
 }

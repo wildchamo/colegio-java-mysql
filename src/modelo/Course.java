@@ -9,8 +9,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -104,6 +106,36 @@ public class Course {
         }
 
         return t;
+    }
+
+    public LinkedList<Course> consultarCursos(String sql) {
+        BaseDatos objbd = new BaseDatos();
+        LinkedList<Course> lc = new LinkedList<>();
+        ResultSet rs;
+        int idc;
+        String nomc;
+        String  classroom;
+        String imgc;
+
+        if (objbd.crearConexion()) {
+            try {
+                Statement st = objbd.getConexion().createStatement();
+                rs = st.executeQuery(sql);
+                while (rs.next()) {
+                    idc = rs.getInt("idCourse");
+                    nomc = rs.getString("nameCourse");
+                    classroom=rs.getString("classroom");
+                    imgc=rs.getString("imgCourse");
+                    lc.add(new Course(idc, nomc,classroom,imgc));
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Gender.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+
+        return lc;
+
     }
 
 }
