@@ -5,11 +5,19 @@
  */
 package modelo;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author wild.chamo
  */
 public class Gender {
+
     private int idGender;
     private String nameG;
 
@@ -40,9 +48,37 @@ public class Gender {
     public void setNameG(String nameG) {
         this.nameG = nameG;
     }
-    
-          @Override
+
+    @Override
     public String toString() {
         return "Gender{" + "idGender=" + idGender + ", nameG=" + nameG + '}';
     }
+
+    public LinkedList<Gender> consultarGeneros(String sql) {
+        BaseDatos objbd = new BaseDatos();
+        LinkedList<Gender> lg = new LinkedList<>();
+        ResultSet rs;
+        int idc;
+        String nomc;
+
+        if (objbd.crearConexion()) {
+            try {
+                Statement st = objbd.getConexion().createStatement();
+                rs = st.executeQuery(sql);
+                while (rs.next()) {
+                    idc = rs.getInt("idGender");
+                    nomc = rs.getString("nameG");
+
+                    lg.add(new Gender(idc, nomc));
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Gender.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+
+        return lg;
+    }
 }
+
+

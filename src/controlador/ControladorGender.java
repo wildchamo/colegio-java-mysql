@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package controlador;
+import java.util.LinkedList;
 import modelo.BaseDatos;
 import modelo.Gender;
 /**
@@ -18,4 +19,13 @@ public class ControladorGender {
         t=objbd.ejecutarSQL(sql);
         return t;              
     }
+      public LinkedList<Gender> consultarGeneros() {
+        LinkedList<Gender> lg=null;
+        String sql="select * from genders;";
+        Gender objc=new Gender();
+        lg=objc.consultarGeneros(sql);
+        
+        return lg;
+    }      
+        
 }
