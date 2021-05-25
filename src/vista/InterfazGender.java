@@ -105,10 +105,10 @@ public class InterfazGender extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-         String nomg = nomGeneroBox.getText();
+        String nomg = nomGeneroBox.getText();
         Gender objg = new Gender(nomg);
         ControladorGender objcc = new ControladorGender();
-        boolean t = objcc.insertCity(objg);
+        boolean t = objcc.insertGender(objg);
 
         if (t) {
             JOptionPane.showMessageDialog(null, "Se insertó el genero");
