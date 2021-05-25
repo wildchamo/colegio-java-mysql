@@ -5,8 +5,10 @@
  */
 package vista;
 
+import controlador.ControladorCity;
 import controlador.ControladorGender;
 import java.util.LinkedList;
+import modelo.City;
 import modelo.Gender;
 
 /**
@@ -15,7 +17,9 @@ import modelo.Gender;
  */
 public class InterfazStudent extends javax.swing.JFrame {
 
-     LinkedList<Gender> listag;
+    LinkedList<Gender> listag;
+    LinkedList<City> listac;
+
     /**
      * Creates new form InterfazStudent
      */
@@ -265,48 +269,56 @@ public class InterfazStudent extends javax.swing.JFrame {
 
     private void IngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarActionPerformed
         // TODO add your handling code here:
-        
-        String nombre1= nombre1Box.getText();
-        String nombre2= nombre2Box.getText();
-        String apellido1= apellido1Box.getText();
-        String apellido2= apellido2Box.getText();
-        String celular=celularBox.getText();
-        String direccion= direccionBox.getText();
-        Gender genero= (Gender) Genero.getSelectedItem();
-        int generoid=genero.getIdGender();
-        String estrato= estratoBox.getSelectedItem().toString();
-        String correoIns= correoInsBox.getText();
-        String noAcudiente1= noAcudienteBox1.getText();
-        String noAcudiente2= noAcudienteBox2.getText();
-        String usuario= usuarioBox.getText();
-        String contrasenia= contraseniaBox.getText();
-        String ciudad= ciudadBox.getSelectedItem().toString();
-        
-        
+
+        String nombre1 = nombre1Box.getText();
+        String nombre2 = nombre2Box.getText();
+        String apellido1 = apellido1Box.getText();
+        String apellido2 = apellido2Box.getText();
+        String celular = celularBox.getText();
+        String direccion = direccionBox.getText();
+        Gender genero = (Gender) Genero.getSelectedItem();
+        int generoid = genero.getIdGender();
+        String estrato = estratoBox.getSelectedItem().toString();
+        String correoIns = correoInsBox.getText();
+        String noAcudiente1 = noAcudienteBox1.getText();
+        String noAcudiente2 = noAcudienteBox2.getText();
+        String usuario = usuarioBox.getText();
+        String contrasenia = contraseniaBox.getText();
+        String ciudad = ciudadBox.getSelectedItem().toString();
+
         System.out.println(generoid);
-             
-        
-        
-        
+
+
     }//GEN-LAST:event_IngresarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-        ControladorGender objcg=new ControladorGender();
-                
-        listag=objcg.consultarGeneros();
-        if(!listag.isEmpty()){
+        ControladorGender objcg = new ControladorGender();
+
+        listag = objcg.consultarGeneros();
+        if (!listag.isEmpty()) {
             for (int i = 0; i < listag.size(); i++) {
-                Gender gender  = listag.get(i);
+                Gender gender = listag.get(i);
                 Genero.addItem(gender.getNameG());
-                
+
+            }
+        }
+
+        ControladorCity objcc = new ControladorCity();
+
+        listac = objcc.consultarCiudades();
+        if (!listac.isEmpty()) {
+            for (int i = 0; i < listac.size(); i++) {
+                City city = listac.get(i);
+                ciudadBox.addItem(city.getNameC());
+
             }
         }
     }//GEN-LAST:event_formWindowOpened
 
     private void GeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GeneroActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_GeneroActionPerformed
 
     /**

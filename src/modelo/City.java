@@ -5,11 +5,19 @@
  */
 package modelo;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author wild.chamo
  */
 public class City {
+
     private int idCity;
     private String nameC;
 
@@ -41,9 +49,36 @@ public class City {
         this.nameC = nameC;
     }
 
-      @Override
+    @Override
     public String toString() {
         return "City{" + "idCity=" + idCity + ", nameC=" + nameC + '}';
+    }
+
+    public LinkedList<City> consultarCiudades(String sql) {
+        BaseDatos objbd = new BaseDatos();
+        LinkedList<City> lc = new LinkedList<>();
+        ResultSet rs;
+        int idc;
+        String nomc;
+
+        if (objbd.crearConexion()) {
+            try {
+                Statement st = objbd.getConexion().createStatement();
+                rs = st.executeQuery(sql);
+                while (rs.next()) {
+                    idc = rs.getInt("idCity");
+                    nomc = rs.getString("nameC");
+
+                    lc.add(new City(idc, nomc));
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Gender.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+
+        return lc;
+
     }
 
 }
