@@ -17,8 +17,7 @@ public class ControladorEnrrolment {
         boolean t = false;
         String sql = "INSERT INTO enrrolments (studyDay,studentIDfk,courseIDfk ) VALUE(" + matricula.getStudyDay() + "," + estudiante.getStudentID() + "," + curso.getCourseID() + ")";
         BaseDatos objbd = new BaseDatos();
-        t = objbd.ejecutarSQL(sql);
-        
+        t = objbd.ejecutarSQL(sql); 
         return t;
     }
 }
