@@ -12,19 +12,25 @@ package modelo;
 public class Enrrolment {
 
     private int enrrolmentID;
+    private String date;
+    private String studyDay;
     private int courseIDfk;
     private int studentIDfk;
 
     public Enrrolment() {
     }
 
-    public Enrrolment(int courseIDfk, int studentIDfk) {
+    public Enrrolment(int enrrolmentID, String date, String studyDay, int courseIDfk, int studentIDfk) {
+        this.enrrolmentID = enrrolmentID;
+        this.date = date;
+        this.studyDay = studyDay;
         this.courseIDfk = courseIDfk;
         this.studentIDfk = studentIDfk;
     }
 
-    public Enrrolment(int enrrolmentID, int courseIDfk, int studentIDfk) {
-        this.enrrolmentID = enrrolmentID;
+    public Enrrolment(String date, String studyDay, int courseIDfk, int studentIDfk) {
+        this.date = date;
+        this.studyDay = studyDay;
         this.courseIDfk = courseIDfk;
         this.studentIDfk = studentIDfk;
     }
@@ -35,6 +41,22 @@ public class Enrrolment {
 
     public void setEnrrolmentID(int enrrolmentID) {
         this.enrrolmentID = enrrolmentID;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getStudyDay() {
+        return studyDay;
+    }
+
+    public void setStudyDay(String studyDay) {
+        this.studyDay = studyDay;
     }
 
     public int getCourseIDfk() {
@@ -55,9 +77,12 @@ public class Enrrolment {
 
     @Override
     public String toString() {
-        return "Enrrolment{" + "enrrolmentID=" + enrrolmentID + ", courseIDfk=" + courseIDfk + ", studentIDfk=" + studentIDfk + '}';
+        return "Enrrolment{" + "enrrolmentID=" + enrrolmentID + ", date=" + date + ", studyDay=" + studyDay + ", courseIDfk=" + courseIDfk + ", studentIDfk=" + studentIDfk + '}';
     }
-    
+
+
+
+ 
     
     
 }
