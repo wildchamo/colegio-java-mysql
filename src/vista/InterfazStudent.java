@@ -269,8 +269,6 @@ public class InterfazStudent extends javax.swing.JFrame {
     private void IngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarActionPerformed
         // TODO add your handling code here:
 
-        
-
         String nombre1 = nombre1Box.getText();
         String nombre2 = nombre2Box.getText();
         String apellido1 = apellido1Box.getText();
@@ -284,7 +282,7 @@ public class InterfazStudent extends javax.swing.JFrame {
         String noAcudiente2 = noAcudienteBox2.getText();
         String usuario = usuarioBox.getText();
         String contrasenia = contraseniaBox.getText();
-        int indexC = ciudadBox.getSelectedIndex();
+        int indexC = ciudadBox.getSelectedIndex();      
 
 
 
