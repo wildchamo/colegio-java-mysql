@@ -16,7 +16,7 @@ public class ControladorSubject {
 
     public boolean insertSubject(Subject objs) {
         boolean t = false;
-        String sql =  "{call escuela.insertSubject('" + objs.getNameSub() + "');}";
+        String sql =  "{call insertSubject('" + objs.getNameSub() + "')}";
         BaseDatos objbd = new BaseDatos();
         t = objbd.ejecutarSQL(sql);
         return t;
