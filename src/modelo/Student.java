@@ -247,7 +247,7 @@ public class Student {
                     IdGender = rs.getInt("idGenderfk");
                     IdCity = rs.getInt("idcitiesfk");
 
-                    ls.add(new Student(idc, noms, noms2, surnames, surname2s));
+                    ls.add(new Student(idc, noms, noms2, surnames, surname2s,mobile,address,stratum,insEmail,cusM1,cusM2,userS,passS,IdGender,IdCity));
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(Gender.class.getName()).log(Level.SEVERE, null, ex);

@@ -5,6 +5,7 @@
  */
 package controlador;
 
+import java.util.LinkedList;
 import modelo.BaseDatos;
 import modelo.Subject;
 
@@ -16,9 +17,20 @@ public class ControladorSubject {
 
     public boolean insertSubject(Subject objs) {
         boolean t = false;
-        String sql =  "{call insertSubject('" + objs.getNameSub() + "')}";
+        String sql = "{call insertSubject('" + objs.getNameSub() + "')}";
         BaseDatos objbd = new BaseDatos();
         t = objbd.ejecutarSQL(sql);
         return t;
     }
+
+    public LinkedList<Subject> consultarAsignaturas() {
+        LinkedList<Subject> ls = null;
+        String sql = "select * from subjets;";
+        Subject objs = new Subject();
+        ls = objs.consultarAsignaturas(sql);
+
+        return ls;
+    }
+}
+
 }
