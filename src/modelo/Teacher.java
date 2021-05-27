@@ -5,6 +5,9 @@
  */
 package modelo;
 
+import java.sql.ResultSet;
+import java.util.LinkedList;
+
 /**
  *
  * @author wild.chamo
@@ -190,6 +193,14 @@ public class Teacher {
         return "Teacher{" + "teacherID=" + teacherID + ", name1T=" + name1T + ", name2T=" + name2T + ", suname1T=" + suname1T + ", suname2T=" + suname2T + ", mobileT=" + mobileT + ", addressT=" + addressT + ", stratumT=" + stratumT + ", institutionalEmailT=" + institutionalEmailT + ", businessPositionT=" + businessPositionT + ", workDay=" + workDay + ", userT=" + userT + ", passwordT=" + passwordT + ", idCityfk=" + idCityfk + ", idGenderfk=" + idGenderfk + '}';
     }
 
+    public LinkedList<Teacher> consultarProfesores(String sql) {
+        BaseDatos objbd = new BaseDatos();
+        LinkedList<Teacher> lt = new LinkedList<>();
+        ResultSet rs;
 
+        
+        
+        
+    }
 
 }

@@ -217,7 +217,6 @@ public class Student {
         String mobile;
         String address;
         String stratum;
-        
         String insEmail;
         String cusM1;
         String cusM2;
