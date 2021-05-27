@@ -141,6 +141,11 @@ public class InterfazTeacher extends javax.swing.JFrame {
         jLabel17.setText("Ciudad");
 
         jButton1.setText("Ingresar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -192,7 +197,7 @@ public class InterfazTeacher extends javax.swing.JFrame {
                             .addComponent(usuarioBox)
                             .addComponent(contraseniaBox)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel17)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(ciudadBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -277,40 +282,9 @@ public class InterfazTeacher extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    private void IngresarActionPerformed(java.awt.event.ActionEvent evt) {
-    String nombre1 = nombre1Box.getText();
-        String nombre2 = nombre2Box.getText();
-        String apellido1 = apellido1Box.getText();
-        String apellido2 = apellido2Box.getText();
-        String celular = celularBox.getText();
-        String direccion = direccionBox.getText();
-        int indexG = Genero.getSelectedIndex();
-        String estrato = estratoBox.getSelectedItem().toString();
-        String correoIns = correoInsBox.getText();
-        String cargo = cargoBox.getText();
-        String jornada = workdayBox.getText();
-        String usuario = usuarioBox.getText();
-        String contrasenia = contraseniaBox.getText();
-        int indexC = ciudadBox.getSelectedIndex(); 
-        
-        Teacher profesor = new Teacher(nombre1, nombre2, apellido1, apellido2, celular, direccion, estrato, correoIns, cargo, jornada, usuario, contrasenia, indexC+1, indexG+1);
-        ControladorTeacher cs = new ControladorTeacher();
-        
-        boolean T = cs.insertTeacher(profesor);
 
-        if (T) {
 
-            JOptionPane.showMessageDialog(null, "Inserción de Profesor Exitosa");
 
-        } else {
-
-            JOptionPane.showMessageDialog(null, "Inserción Fallida");
-
-        }
-
-    }
-    
-    
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         ControladorGender objcg = new ControladorGender();
@@ -339,6 +313,38 @@ public class InterfazTeacher extends javax.swing.JFrame {
     private void apellido2BoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apellido2BoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_apellido2BoxActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+             String nombre1 = nombre1Box.getText();
+        String nombre2 = nombre2Box.getText();
+        String apellido1 = apellido1Box.getText();
+        String apellido2 = apellido2Box.getText();
+        String celular = celularBox.getText();
+        String direccion = direccionBox.getText();
+        int indexG = Genero.getSelectedIndex();
+        String estrato = estratoBox.getSelectedItem().toString();
+        String correoIns = correoInsBox.getText();
+        String cargo = cargoBox.getText();
+        String jornada = workdayBox.getText();
+        String usuario = usuarioBox.getText();
+        String contrasenia = contraseniaBox.getText();
+        int indexC = ciudadBox.getSelectedIndex();
+
+        Teacher profesor = new Teacher(nombre1, nombre2, apellido1, apellido2, celular, direccion, estrato, correoIns, cargo, jornada, usuario, contrasenia, indexC+1, indexG+1);
+        ControladorTeacher cs = new ControladorTeacher();
+
+        boolean T = cs.insertTeacher(profesor);
+
+        if (T) {
+
+            JOptionPane.showMessageDialog(null, "Inserción de Profesor Exitosa");
+
+        } else {
+
+            JOptionPane.showMessageDialog(null, "Inserción Fallida");
+
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
