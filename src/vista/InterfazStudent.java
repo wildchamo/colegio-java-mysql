@@ -14,6 +14,7 @@ import java.util.LinkedList;
 import javax.swing.JOptionPane;
 import modelo.City;
 import modelo.Course;
+import modelo.Enrrolment;
 import modelo.Gender;
 import modelo.Student;
 
@@ -76,6 +77,7 @@ public class InterfazStudent extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         cursosBox = new javax.swing.JComboBox<>();
         jLabel16 = new javax.swing.JLabel();
+        jornadaBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -134,6 +136,8 @@ public class InterfazStudent extends javax.swing.JFrame {
 
         jLabel16.setText("Curso");
 
+        jornadaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -143,7 +147,9 @@ public class InterfazStudent extends javax.swing.JFrame {
                 .addComponent(jLabel16)
                 .addGap(11, 11, 11)
                 .addComponent(cursosBox, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(203, Short.MAX_VALUE))
+                .addGap(63, 63, 63)
+                .addComponent(jornadaBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(84, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,7 +157,8 @@ public class InterfazStudent extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cursosBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16))
+                    .addComponent(jLabel16)
+                    .addComponent(jornadaBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
@@ -298,6 +305,11 @@ public class InterfazStudent extends javax.swing.JFrame {
         String usuario = usuarioBox.getText();
         String contrasenia = contraseniaBox.getText();
         int indexC = ciudadBox.getSelectedIndex();
+        
+        
+        String jornada= jornadaBox.getSelectedItem().toString();
+        Enrrolment matricula= new Enrrolment(jornada);
+        int indexCurso= cursosBox.getSelectedIndex();
 
         Student estudiante = new Student(nombre1, nombre2, apellido1, apellido2, celular, direccion, estrato, correoIns, noAcudiente1, noAcudiente2, usuario, contrasenia, indexC + 1, indexG + 1);
         ControladorStudent cs = new ControladorStudent();
@@ -316,7 +328,7 @@ public class InterfazStudent extends javax.swing.JFrame {
         }
                 LinkedList<Student> estudiantes = cs.consultarEstudiantes();
                 ControladorEnrrolment controladorEn=new ControladorEnrrolment();
-                if(controladorEn.asignarCurso(matricula, estudiantes.getLast(), curso)){
+                if(controladorEn.asignarCurso(matricula, estudiantes.getLast(), indexCurso)){
                      JOptionPane.showMessageDialog(null, "Asignación de Categoría Exitosa");
                 }else{
                     JOptionPane.showMessageDialog(null, "Asignación de Categoría Fallida");
@@ -436,6 +448,7 @@ public class InterfazStudent extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JComboBox<String> jornadaBox;
     private javax.swing.JTextField noAcudienteBox1;
     private javax.swing.JTextField noAcudienteBox2;
     private javax.swing.JTextField nombre1Box;

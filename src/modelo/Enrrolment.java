@@ -28,6 +28,10 @@ public class Enrrolment {
         this.studentIDfk = studentIDfk;
     }
 
+    public Enrrolment(String studyDay) {
+        this.studyDay = studyDay;
+    }
+
     public Enrrolment(String date, String studyDay, int courseIDfk, int studentIDfk) {
         this.date = date;
         this.studyDay = studyDay;
