@@ -19,5 +19,14 @@ public class ControladorStudent {
         t=objbd.ejecutarSQL(sql);
         return t;              
     }
+
+    public LinkedList<Student> consultarEstudiantes() {
+           LinkedList<Student> ls=null;
+        String sql="select * from students;";
+        Student objc=new Student();
+        ls=objc.consultarEstudiantes(sql);
+        
+        return ls;
+    }
     
 }
