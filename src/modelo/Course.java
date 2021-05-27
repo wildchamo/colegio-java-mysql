@@ -132,7 +132,7 @@ public class Course {
                 Statement st = objbd.getConexion().createStatement();
                 rs = st.executeQuery(sql);
                 while (rs.next()) {
-                    idc = rs.getInt("idCourse");
+                    idc = rs.getInt("courseID");
                     nomc = rs.getString("nameCourse");
                     lcu.add(new Course(idc, nomc));
                 }
