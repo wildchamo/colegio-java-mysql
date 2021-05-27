@@ -6,11 +6,13 @@
 package vista;
 
 import controlador.ControladorCity;
+import controlador.ControladorCourse;
 import controlador.ControladorGender;
 import controlador.ControladorStudent;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
 import modelo.City;
+import modelo.Course;
 import modelo.Gender;
 import modelo.Student;
 
@@ -22,6 +24,7 @@ public class InterfazStudent extends javax.swing.JFrame {
 
     LinkedList<Gender> listag;
     LinkedList<City> listac;
+    LinkedList<Course> listaco;
 
     /**
      * Creates new form InterfazStudent
@@ -69,6 +72,8 @@ public class InterfazStudent extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         Ingresar = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        cursosBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -122,6 +127,25 @@ public class InterfazStudent extends javax.swing.JFrame {
                 IngresarActionPerformed(evt);
             }
         });
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(cursosBox, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(297, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(cursosBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -181,13 +205,16 @@ public class InterfazStudent extends javax.swing.JFrame {
                     .addComponent(contraseniaBox, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(56, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(98, 98, 98)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(154, 154, 154)
-                        .addComponent(Ingresar)))
+                .addGap(98, 98, 98)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Ingresar)
+                .addGap(199, 199, 199))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -237,7 +264,9 @@ public class InterfazStudent extends javax.swing.JFrame {
                     .addComponent(ciudadBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14)
                     .addComponent(jLabel15))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                .addGap(28, 28, 28)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
                 .addComponent(Ingresar)
                 .addGap(26, 26, 26))
         );
@@ -261,13 +290,11 @@ public class InterfazStudent extends javax.swing.JFrame {
         String noAcudiente2 = noAcudienteBox2.getText();
         String usuario = usuarioBox.getText();
         String contrasenia = contraseniaBox.getText();
-        int indexC = ciudadBox.getSelectedIndex();      
+        int indexC = ciudadBox.getSelectedIndex();
 
-
-
-        Student estudiante = new Student(nombre1, nombre2, apellido1, apellido2, celular, direccion, estrato, correoIns, noAcudiente1, noAcudiente2, usuario, contrasenia, indexC+1, indexG+1);
+        Student estudiante = new Student(nombre1, nombre2, apellido1, apellido2, celular, direccion, estrato, correoIns, noAcudiente1, noAcudiente2, usuario, contrasenia, indexC + 1, indexG + 1);
         ControladorStudent cs = new ControladorStudent();
-        
+
         boolean t = cs.insertStudent(estudiante);
 
         if (t) {
@@ -285,6 +312,19 @@ public class InterfazStudent extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
+           ControladorCourse objcu=new ControladorCourse();
+                
+        listaco=objcu.consultarCursos();
+        if(!listaco.isEmpty()){
+            for (int i = 0; i < listaco.size(); i++) {
+                Course curso = listaco.get(i);
+                cursosBox.addItem(curso.getNameC());
+                
+            }
+        }
+         
+        
+        
         ControladorGender objcg = new ControladorGender();
 
         listag = objcg.consultarGeneros();
@@ -357,6 +397,7 @@ public class InterfazStudent extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> ciudadBox;
     private javax.swing.JTextField contraseniaBox;
     private javax.swing.JTextField correoInsBox;
+    private javax.swing.JComboBox<String> cursosBox;
     private javax.swing.JTextField direccionBox;
     private javax.swing.JComboBox<String> estratoBox;
     private javax.swing.JLabel jLabel1;
@@ -374,6 +415,7 @@ public class InterfazStudent extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField noAcudienteBox1;
     private javax.swing.JTextField noAcudienteBox2;
     private javax.swing.JTextField nombre1Box;
