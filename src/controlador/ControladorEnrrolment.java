@@ -15,7 +15,7 @@ import modelo.Student;
 public class ControladorEnrrolment {
         public boolean asignarCurso(Enrrolment matricula,Student estudiante, int indexCurso){
         boolean t = false;
-        String sql = "INSERT INTO enrrolments (studyDay,studentIDfk,courseIDfk ) VALUE(" + matricula.getStudyDay() + "," + estudiante.getStudentID() + "," +indexCurso+ ")";
+        String sql = "INSERT INTO enrollments (studyDay,idStudentfk,idCoursefk ) VALUE(" + matricula.getStudyDay() + "," + estudiante.getStudentID() + "," +indexCurso+ ")";
         BaseDatos objbd = new BaseDatos();
         t = objbd.ejecutarSQL(sql); 
         return t;

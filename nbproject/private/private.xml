@@ -3,26 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Documents/NetBeansProjects/colegioF/src/modelo/Course.java</file>
-            <file>file:/D:/Documents/NetBeansProjects/colegioF/src/vista/InterfazStudent.java</file>
-            <file>file:/D:/Documents/NetBeansProjects/colegioF/src/modelo/BaseDatos.java</file>
-            <file>file:/D:/Documents/NetBeansProjects/colegioF/src/controlador/ControladorCity.java</file>
-            <file>file:/D:/Documents/NetBeansProjects/colegioF/src/controlador/ControladorEnrrolment.java</file>
-            <file>file:/D:/Documents/NetBeansProjects/colegioF/src/modelo/Subject.java</file>
-            <file>file:/D:/Documents/NetBeansProjects/colegioF/src/vista/InterfazCourse.java</file>
             <file>file:/D:/Documents/NetBeansProjects/colegioF/src/controlador/ControladorSubject.java</file>
             <file>file:/D:/Documents/NetBeansProjects/colegioF/src/controlador/ControladorGender.java</file>
             <file>file:/D:/Documents/NetBeansProjects/colegioF/src/modelo/Enrrolment.java</file>
             <file>file:/D:/Documents/NetBeansProjects/colegioF/src/controlador/ControladorCourse.java</file>
-            <file>file:/D:/Documents/NetBeansProjects/colegioF/src/vista/InterfazTeacher.java</file>
-            <file>file:/D:/Documents/NetBeansProjects/colegioF/src/modelo/Student.java</file>
             <file>file:/D:/Documents/NetBeansProjects/colegioF/src/vista/interfazCity.java</file>
+            <file>file:/D:/Documents/NetBeansProjects/colegioF/src/vista/InterfazStudent.java</file>
+            <file>file:/D:/Documents/NetBeansProjects/colegioF/src/controlador/ControladorCity.java</file>
             <file>file:/D:/Documents/NetBeansProjects/colegioF/src/controlador/ControladorStudent.java</file>
-            <file>file:/D:/Documents/NetBeansProjects/colegioF/src/modelo/Teacher.java</file>
-            <file>file:/D:/Documents/NetBeansProjects/colegioF/src/vista/InterfazGender.java</file>
             <file>file:/D:/Documents/NetBeansProjects/colegioF/src/controlador/ControladorTeacher.java</file>
-            <file>file:/D:/Documents/NetBeansProjects/colegioF/src/modelo/City.java</file>
-            <file>file:/D:/Documents/NetBeansProjects/colegioF/src/vista/InterfazSubject.java</file>
+            <file>file:/D:/Documents/NetBeansProjects/colegioF/src/controlador/ControladorEnrrolment.java</file>
         </group>
     </open-files>
 </project-private>
