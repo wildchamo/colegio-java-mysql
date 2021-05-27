@@ -16,7 +16,7 @@ import modelo.Teacher;
 public class ControladorSubjectByCourse {
         public boolean asignarMateriaCurso(Subject materia,Course curso,Teacher profesor){
         boolean t = false;
-        String sql = "INSERT INTO enrollments(studyDay, idStudentfk, idCoursefk ) VALUE(" + materia.getSubjectID() + ", " 
+        String sql = "INSERT INTO subjects_by_course(subjectIDfk, courseIDfk, teacherIDfk ) VALUE(" + materia.getSubjectID() + ", " 
                 + curso.getCourseID() + ", " +profesor.getTeacherID()+ ");";
         BaseDatos objbd = new BaseDatos();
         t = objbd.ejecutarSQL(sql); 
