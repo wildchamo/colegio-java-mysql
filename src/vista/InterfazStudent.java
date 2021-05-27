@@ -314,7 +314,7 @@ public class InterfazStudent extends javax.swing.JFrame {
         
         
         String jornada= jornadaBox.getSelectedItem().toString();
-        Enrrolment matricula= new Enrrolment(nombre1);
+        Enrrolment matricula= new Enrrolment(jornada);
         
         
         
