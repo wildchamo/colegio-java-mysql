@@ -147,9 +147,9 @@ public class InterfazStudent extends javax.swing.JFrame {
                 .addComponent(jLabel16)
                 .addGap(11, 11, 11)
                 .addComponent(cursosBox, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
                 .addComponent(jornadaBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addGap(18, 18, 18))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -309,13 +309,13 @@ public class InterfazStudent extends javax.swing.JFrame {
         
         String jornada= jornadaBox.getSelectedItem().toString();
         Enrrolment matricula= new Enrrolment(jornada);
-        int indexCurso= cursosBox.getSelectedIndex();
+        int indexCurso= (cursosBox.getSelectedIndex())+1;
 
         Student estudiante = new Student(nombre1, nombre2, apellido1, apellido2, celular, direccion, estrato, correoIns, noAcudiente1, noAcudiente2, usuario, contrasenia, indexC + 1, indexG + 1);
         ControladorStudent cs = new ControladorStudent();
 
         boolean t = cs.insertStudent(estudiante);
-        System.out.println(listaco);
+
 
         if (t) {
 
@@ -329,9 +329,9 @@ public class InterfazStudent extends javax.swing.JFrame {
                 LinkedList<Student> estudiantes = cs.consultarEstudiantes();
                 ControladorEnrrolment controladorEn=new ControladorEnrrolment();
                 if(controladorEn.asignarCurso(matricula, estudiantes.getLast(), indexCurso)){
-                     JOptionPane.showMessageDialog(null, "Asignación de Categoría Exitosa");
+                     JOptionPane.showMessageDialog(null, "Asignación de curso Exitosa");
                 }else{
-                    JOptionPane.showMessageDialog(null, "Asignación de Categoría Fallida");
+                    JOptionPane.showMessageDialog(null, "Asignación de curso Fallida");
                 }
         
 
