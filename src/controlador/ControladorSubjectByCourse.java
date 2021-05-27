@@ -23,7 +23,4 @@ public class ControladorSubjectByCourse {
         return t;
     }
     
-    
-    
-  
 }

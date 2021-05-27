@@ -214,6 +214,17 @@ public class Student {
         String noms2;
         String surnames;
         String surname2s;
+        String mobile;
+        String address;
+        String stratum;
+        
+        String insEmail;
+        String cusM1;
+        String cusM2;
+        String userS;
+        String passS;
+        int IdGender;
+        int IdCity;
 
         if (objbd.crearConexion()) {
             try {
@@ -225,7 +236,18 @@ public class Student {
                     noms2 = rs.getString("name2S");
                     surnames = rs.getString("surname1S");
                     surname2s = rs.getString("surname2S");
-                    ls.add(new Student(idc, noms,noms2,surnames,surname2s));
+                    mobile = rs.getString("mobileS");
+                    address = rs.getString("adressS");
+                    stratum=rs.getString("stratumS");
+                    insEmail = rs.getString("institutionalEmailS");
+                    cusM1 = rs.getString("custodianMobile1");
+                    cusM2 = rs.getString("custodianMobile2");
+                    userS = rs.getString("userS");
+                    passS = rs.getString("passwordS");
+                    IdGender = rs.getInt("idGenderfk");
+                    IdCity = rs.getInt("idcitiesfk");
+
+                    ls.add(new Student(idc, noms, noms2, surnames, surname2s));
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(Gender.class.getName()).log(Level.SEVERE, null, ex);
