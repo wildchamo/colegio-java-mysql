@@ -7,6 +7,7 @@ package vista;
 
 import controlador.ControladorCity;
 import controlador.ControladorCourse;
+import controlador.ControladorEnrrolment;
 import controlador.ControladorGender;
 import controlador.ControladorStudent;
 import java.util.LinkedList;
@@ -74,6 +75,7 @@ public class InterfazStudent extends javax.swing.JFrame {
         Ingresar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         cursosBox = new javax.swing.JComboBox<>();
+        jLabel16 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -130,80 +132,33 @@ public class InterfazStudent extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        jLabel16.setText("Curso");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addContainerGap()
+                .addComponent(jLabel16)
+                .addGap(11, 11, 11)
                 .addComponent(cursosBox, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(297, Short.MAX_VALUE))
+                .addContainerGap(203, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(cursosBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addGap(24, 24, 24)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cursosBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(55, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                            .addComponent(nombre1Box, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel5)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel7)
-                                            .addGap(8, 8, 8)))
-                                    .addGap(10, 10, 10))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel15)
-                                    .addGap(26, 26, 26)))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(Genero, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(direccionBox)
-                                .addComponent(celularBox)
-                                .addComponent(apellido2Box, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(apellido1Box)
-                            .addComponent(nombre2Box, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(83, 83, 83)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel14))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ciudadBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(estratoBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(correoInsBox)
-                    .addComponent(noAcudienteBox1)
-                    .addComponent(noAcudienteBox2)
-                    .addComponent(usuarioBox)
-                    .addComponent(contraseniaBox, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(56, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(98, 98, 98)
                 .addComponent(jLabel1)
@@ -213,9 +168,61 @@ public class InterfazStudent extends javax.swing.JFrame {
                 .addComponent(Ingresar)
                 .addGap(199, 199, 199))
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel2)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                                    .addComponent(nombre1Box, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(jLabel5)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addComponent(jLabel7)
+                                                    .addGap(8, 8, 8)))
+                                            .addGap(10, 10, 10))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel15)
+                                            .addGap(26, 26, 26)))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(Genero, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(direccionBox)
+                                        .addComponent(celularBox)
+                                        .addComponent(apellido2Box, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(apellido1Box)
+                                    .addComponent(nombre2Box, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(83, 83, 83)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel14))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ciudadBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(estratoBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(correoInsBox)
+                            .addComponent(noAcudienteBox1)
+                            .addComponent(noAcudienteBox2)
+                            .addComponent(usuarioBox)
+                            .addComponent(contraseniaBox, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -264,9 +271,9 @@ public class InterfazStudent extends javax.swing.JFrame {
                     .addComponent(ciudadBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14)
                     .addComponent(jLabel15))
-                .addGap(28, 28, 28)
+                .addGap(38, 38, 38)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                 .addComponent(Ingresar)
                 .addGap(26, 26, 26))
         );
@@ -296,6 +303,7 @@ public class InterfazStudent extends javax.swing.JFrame {
         ControladorStudent cs = new ControladorStudent();
 
         boolean t = cs.insertStudent(estudiante);
+        System.out.println(listaco);
 
         if (t) {
 
@@ -306,25 +314,21 @@ public class InterfazStudent extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Insercion Fallida");
 
         }
+                LinkedList<Student> estudiantes = cs.consultarEstudiantes();
+                ControladorEnrrolment controladorEn=new ControladorEnrrolment();
+                if(controladorEn.asignarCurso(matricula, estudiantes.getLast(), curso)){
+                     JOptionPane.showMessageDialog(null, "Asignación de Categoría Exitosa");
+                }else{
+                    JOptionPane.showMessageDialog(null, "Asignación de Categoría Fallida");
+                }
+        
 
 
     }//GEN-LAST:event_IngresarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-           ControladorCourse objcu=new ControladorCourse();
-                
-        listaco=objcu.consultarCursos();
-        if(!listaco.isEmpty()){
-            for (int i = 0; i < listaco.size(); i++) {
-                Course curso = listaco.get(i);
-                cursosBox.addItem(curso.getNameC());
-                
-            }
-        }
-         
-        
-        
+
         ControladorGender objcg = new ControladorGender();
 
         listag = objcg.consultarGeneros();
@@ -343,9 +347,24 @@ public class InterfazStudent extends javax.swing.JFrame {
             for (int i = 0; i < listac.size(); i++) {
                 City city = listac.get(i);
                 ciudadBox.addItem(city.getNameC());
+            }
+        }
+
+        ControladorCourse controladorCo = new ControladorCourse();
+
+        listaco = controladorCo.consultarCursos();
+        if (!listaco.isEmpty()) {
+            for (int i = 0; i < listaco.size(); i++) {
+                Course curso = listaco.get(i);
+                cursosBox.addItem(curso.getNameC());
 
             }
         }
+        
+        
+        
+        
+        
     }//GEN-LAST:event_formWindowOpened
 
     private void GeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GeneroActionPerformed
@@ -407,6 +426,7 @@ public class InterfazStudent extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

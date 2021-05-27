@@ -30,10 +30,21 @@ public class Course {
     public Course() {
     }
 
+    public Course(int courseID, String nameC) {
+        this.courseID = courseID;
+        this.nameC = nameC;
+    }
+
     public Course(String nameC, String classroom, String imgCourse) {
         this.nameC = nameC;
         this.classroom = classroom;
         this.imgCourse = imgCourse;
+    }
+
+    public Course(int courseID, String nameC, String classroom) {
+        this.courseID = courseID;
+        this.nameC = nameC;
+        this.classroom = classroom;
     }
 
     public Course(int courseID, String nameC, String classroom, String imgCourse) {
@@ -110,12 +121,11 @@ public class Course {
 
     public LinkedList<Course> consultarCursos(String sql) {
         BaseDatos objbd = new BaseDatos();
-        LinkedList<Course> lc = new LinkedList<>();
+        LinkedList<Course> lcu = new LinkedList<>();
         ResultSet rs;
         int idc;
         String nomc;
-        String  classroom;
-        String imgc;
+
 
         if (objbd.crearConexion()) {
             try {
@@ -124,9 +134,7 @@ public class Course {
                 while (rs.next()) {
                     idc = rs.getInt("idCourse");
                     nomc = rs.getString("nameCourse");
-                    classroom=rs.getString("classroom");
-                    imgc=rs.getString("imgCourse");
-                    lc.add(new Course(idc, nomc,classroom,imgc));
+                    lcu.add(new Course(idc, nomc));
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(Gender.class.getName()).log(Level.SEVERE, null, ex);
@@ -134,7 +142,7 @@ public class Course {
 
         }
 
-        return lc;
+        return lcu;
 
     }
 

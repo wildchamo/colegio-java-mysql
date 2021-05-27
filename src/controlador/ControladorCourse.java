@@ -22,12 +22,12 @@ public class ControladorCourse {
         } 
         
         public LinkedList<Course> consultarCursos() {
-        LinkedList<Course> lg=null;
+        LinkedList<Course> lc=null;
         String sql="select * from courses;";
-        Course objc=new Course();
-        lg=objc.consultarCursos(sql);
+        Course objco=new Course();
+        lc=objco.consultarCursos(sql);
         
-        return lg;
+        return lc;
     }   
     
 }
