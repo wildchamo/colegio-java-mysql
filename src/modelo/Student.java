@@ -5,11 +5,19 @@
  */
 package modelo;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author wild.chamo
  */
 public class Student {
+
     private int studentID;
     private String name1S;
     private String name2S;
@@ -46,6 +54,14 @@ public class Student {
         this.idGenderfk = idGenderfk;
     }
 
+    public Student(int studentID, String name1S, String name2S, String suname1S, String suname2S) {
+        this.studentID = studentID;
+        this.name1S = name1S;
+        this.name2S = name2S;
+        this.suname1S = suname1S;
+        this.suname2S = suname2S;
+    }
+
     public Student(int studentID, String name1S, String name2S, String suname1S, String suname2S, String mobileS, String addressS, String stratumS, String institutionalEmailS, String custodianMobile1, String custodianMobile2, String userS, String passwordS, int idCityfk, int idGenderfk) {
         this.studentID = studentID;
         this.name1S = name1S;
@@ -63,7 +79,6 @@ public class Student {
         this.idCityfk = idCityfk;
         this.idGenderfk = idGenderfk;
     }
-
 
     public int getStudentID() {
         return studentID;
@@ -189,8 +204,36 @@ public class Student {
     public String toString() {
         return "Student{" + "studentID=" + studentID + ", name1S=" + name1S + ", name2S=" + name2S + ", suname1S=" + suname1S + ", suname2S=" + suname2S + ", mobileS=" + mobileS + ", addressS=" + addressS + ", stratumS=" + stratumS + ", institutionalEmailS=" + institutionalEmailS + ", custodianMobile1=" + custodianMobile1 + ", custodianMobile2=" + custodianMobile2 + ", userS=" + userS + ", passwordS=" + passwordS + ", idCityfk=" + idCityfk + ", idGenderfk=" + idGenderfk + '}';
     }
-    
-    
-    
-    
+
+    public LinkedList<Student> consultarEstudiantes(String sql) {
+        BaseDatos objbd = new BaseDatos();
+        LinkedList<Student> ls = new LinkedList<>();
+        ResultSet rs;
+        int idc;
+        String noms;
+        String noms2;
+        String surnames;
+        String surname2s;
+
+        if (objbd.crearConexion()) {
+            try {
+                Statement st = objbd.getConexion().createStatement();
+                rs = st.executeQuery(sql);
+                while (rs.next()) {
+                    idc = rs.getInt("studentID");
+                    noms = rs.getString("name1S");
+                    noms2 = rs.getString("name2S");
+                    surnames = rs.getString("surname1S");
+                    surname2s = rs.getString("surname2S");
+                    ls.add(new Student(idc, noms,noms2,surnames,surname2s));
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Gender.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+
+        return ls;
+    }
+
 }
