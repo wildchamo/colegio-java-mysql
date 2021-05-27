@@ -135,6 +135,12 @@ public class InterfazStudent extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        cursosBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cursosBoxActionPerformed(evt);
+            }
+        });
+
         jLabel16.setText("Curso");
 
         jornadaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Diurno", "Nocturno" }));
@@ -394,6 +400,10 @@ public class InterfazStudent extends javax.swing.JFrame {
         // TODO add your handling code here:
 
     }//GEN-LAST:event_GeneroActionPerformed
+
+    private void cursosBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cursosBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cursosBoxActionPerformed
 
     /**
      * @param args the command line arguments

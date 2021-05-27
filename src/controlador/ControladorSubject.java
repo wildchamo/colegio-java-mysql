@@ -25,7 +25,7 @@ public class ControladorSubject {
 
     public LinkedList<Subject> consultarAsignaturas() {
         LinkedList<Subject> ls = null;
-        String sql = "select * from subjets;";
+        String sql = "select * from subjects;";
         Subject objs = new Subject();
         ls = objs.consultarAsignaturas(sql);
 
