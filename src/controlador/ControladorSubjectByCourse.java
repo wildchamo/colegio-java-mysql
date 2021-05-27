@@ -5,11 +5,25 @@
  */
 package controlador;
 import modelo.BaseDatos;
+import modelo.Course;
+import modelo.Subject;
 import modelo.SubjectByCourse;
+import modelo.Teacher;
 /**
  *
  * @author wild.chamo
  */
 public class ControladorSubjectByCourse {
+        public boolean asignarMateriaCurso(Subject materia,Course curso,Teacher profesor){
+        boolean t = false;
+        String sql = "INSERT INTO enrollments(studyDay, idStudentfk, idCoursefk ) VALUE(" + materia.getSubjectID() + ", " 
+                + curso.getCourseID() + ", " +profesor.getTeacherID()+ ");";
+        BaseDatos objbd = new BaseDatos();
+        t = objbd.ejecutarSQL(sql); 
+        return t;
+    }
     
+    
+    
+  
 }

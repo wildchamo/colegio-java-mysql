@@ -4,15 +4,16 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/Documents/NetBeansProjects/colegioF/src/controlador/ControladorSubject.java</file>
-            <file>file:/D:/Documents/NetBeansProjects/colegioF/src/controlador/ControladorGender.java</file>
             <file>file:/D:/Documents/NetBeansProjects/colegioF/src/modelo/Enrrolment.java</file>
             <file>file:/D:/Documents/NetBeansProjects/colegioF/src/controlador/ControladorCourse.java</file>
-            <file>file:/D:/Documents/NetBeansProjects/colegioF/src/vista/interfazCity.java</file>
+            <file>file:/D:/Documents/NetBeansProjects/colegioF/src/controlador/ControladorSubjectByCourse.java</file>
             <file>file:/D:/Documents/NetBeansProjects/colegioF/src/vista/InterfazStudent.java</file>
+            <file>file:/D:/Documents/NetBeansProjects/colegioF/src/modelo/SubjectByCourse.java</file>
             <file>file:/D:/Documents/NetBeansProjects/colegioF/src/controlador/ControladorCity.java</file>
-            <file>file:/D:/Documents/NetBeansProjects/colegioF/src/controlador/ControladorStudent.java</file>
-            <file>file:/D:/Documents/NetBeansProjects/colegioF/src/controlador/ControladorTeacher.java</file>
+            <file>file:/D:/Documents/NetBeansProjects/colegioF/src/vista/InterfazGender.java</file>
             <file>file:/D:/Documents/NetBeansProjects/colegioF/src/controlador/ControladorEnrrolment.java</file>
+            <file>file:/D:/Documents/NetBeansProjects/colegioF/src/vista/InterfazSubject.java</file>
+            <file>file:/D:/Documents/NetBeansProjects/colegioF/src/vista/InterfazCourse.java</file>
         </group>
     </open-files>
 </project-private>
