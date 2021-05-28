@@ -12,6 +12,7 @@ import modelo.Teacher;
 import controlador.ControladorCourse;
 import controlador.ControladorSubject;
 import controlador.ControladorTeacher;
+import javax.swing.JComboBox;
 
 /**
  *
@@ -62,6 +63,11 @@ public class AsignarCurso extends javax.swing.JFrame {
         });
 
         jButton1.setText("Realizar asignación");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Asignatura");
 
@@ -160,6 +166,15 @@ public class AsignarCurso extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_formWindowOpened
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int asignatura= asignaturaBox.getSelectedIndex();
+        Object asignatura2= asignaturaBox.getSelectedItem();
+        Subject asignaturaf= new Subject();
+               
+        System.out.println(asignatura);
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
