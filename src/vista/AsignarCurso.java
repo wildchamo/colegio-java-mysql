@@ -141,14 +141,14 @@ public class AsignarCurso extends javax.swing.JFrame {
             }
         }
 
-//        ControladorTeacher objct = new ControladorTeacher();
-//        listat = objct.consultarProfesores();
-//        if (!listat.isEmpty()) {
-//            for (int i = 0; i < listat.size(); i++) {
-//                Teacher profesor = listat.get(i);
-//                profesorBox.addItem();
-//            }
-//        }
+        ControladorTeacher objct = new ControladorTeacher();
+        listat = objct.consultarProfesores();
+        if (!listat.isEmpty()) {
+            for (int i = 0; i < listat.size(); i++) {
+                Teacher profesor = listat.get(i);
+                profesorBox.addItem(profesor.getName1T());
+            }
+        }
         ControladorCourse controladorCo = new ControladorCourse();
 
         listaco = controladorCo.consultarCursos();
