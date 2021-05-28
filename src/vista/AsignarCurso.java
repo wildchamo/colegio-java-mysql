@@ -170,18 +170,15 @@ public class AsignarCurso extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         String asignatura = String.valueOf(asignaturaBox.getSelectedItem());
-        int ida;
+        int ida=0;
         for (int i = 0; i < listas.size(); i++) {
             Subject asignatura1 = listas.get(i);
             if(asignatura.equals(asignatura1.getNameSub())){
                 ida=asignatura1.getSubjectID();
-            }
             
-        }
-
-        Object asignatura2 = asignaturaBox.getSelectedItem();
-
-        System.out.println(asignatura);
+            }
+        }    
+    
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
