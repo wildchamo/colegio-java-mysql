@@ -22,14 +22,13 @@ public class ControladorTeacher {
         t = objbd.ejecutarSQL(sql);
         return t;
     }
-    
-       public LinkedList<Teacher> consultarProfesores() {
-           LinkedList<Teacher> ls=null;
-        String sql="select * from teachers;";
-        Teacher objc=new Teacher();
-        ls=objc.consultarProfesores(sql);
+
+    public LinkedList<Teacher> consultarProfesores() {
+        LinkedList<Teacher> ls = null;
+        String sql = "select * from teachers;";
+        Teacher objc = new Teacher();
+        ls = objc.consultarProfesores(sql);
         return ls;
     }
-    
-    
+
 }

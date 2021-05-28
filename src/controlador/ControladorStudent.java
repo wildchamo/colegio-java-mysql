@@ -25,7 +25,6 @@ public class ControladorStudent {
         String sql="select * from students;";
         Student objc=new Student();
         ls=objc.consultarEstudiantes(sql);
-        
         return ls;
     }
     
