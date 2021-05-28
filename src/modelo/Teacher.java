@@ -6,7 +6,11 @@
 package modelo;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -198,9 +202,52 @@ public class Teacher {
         LinkedList<Teacher> lt = new LinkedList<>();
         ResultSet rs;
 
+         int idt;
+        String nomt;
+        String nomt2;
+        String surnamet;
+        String surname2t;
+        String mobilet;
+        String addresst;
+        String stratumt;
+        String insEmailt;
+        String busPosT;
+        String workDayT;
+        String userT;
+        String passT;
+        int IdGender;
+        int IdCity;
         
-        
-        
+                if (objbd.crearConexion()) {
+            try {
+                Statement st = objbd.getConexion().createStatement();
+                rs = st.executeQuery(sql);
+                while (rs.next()) {
+                    idt = rs.getInt("studentID");
+                    nomt = rs.getString("name1S");
+                    nomt2 = rs.getString("name2S");
+                    surnamet = rs.getString("surname1S");
+                    surname2t = rs.getString("surname2S");
+                    mobilet = rs.getString("mobileS");
+                    addresst = rs.getString("adressS");
+                    stratumt=rs.getString("stratumS");
+                    insEmailt = rs.getString("institutionalEmailS");
+                    busPosT = rs.getString("custodianMobile1");
+                    workDayT = rs.getString("custodianMobile2");
+                    userT = rs.getString("userS");
+                    passT = rs.getString("passwordS");
+                    IdGender = rs.getInt("idGenderfk");
+                    IdCity = rs.getInt("idcitiesfk");
+
+                    ls.add(new Student(idc, noms, noms2, surnames, surname2s,mobile,address,stratum,insEmail,cusM1,cusM2,userS,passS,IdGender,IdCity));
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Gender.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+
+        return ls;
     }
 
 }
