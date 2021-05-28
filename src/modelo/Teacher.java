@@ -223,23 +223,23 @@ public class Teacher {
                 Statement st = objbd.getConexion().createStatement();
                 rs = st.executeQuery(sql);
                 while (rs.next()) {
-                    idt = rs.getInt("studentID");
-                    nomt = rs.getString("name1S");
-                    nomt2 = rs.getString("name2S");
-                    surnamet = rs.getString("surname1S");
-                    surname2t = rs.getString("surname2S");
-                    mobilet = rs.getString("mobileS");
-                    addresst = rs.getString("adressS");
-                    stratumt=rs.getString("stratumS");
-                    insEmailt = rs.getString("institutionalEmailS");
-                    busPosT = rs.getString("custodianMobile1");
-                    workDayT = rs.getString("custodianMobile2");
-                    userT = rs.getString("userS");
-                    passT = rs.getString("passwordS");
+                    idt = rs.getInt("teacherID");
+                    nomt = rs.getString("name1T");
+                    nomt2 = rs.getString("name2T");
+                    surnamet = rs.getString("surname1T");
+                    surname2t = rs.getString("surname2T");
+                    mobilet = rs.getString("mobileT");
+                    addresst = rs.getString("adressT");
+                    stratumt=rs.getString("stratumT");
+                    insEmailt = rs.getString("institutionalEmailT");
+                    busPosT = rs.getString("businessPositionT");
+                    workDayT = rs.getString("workDayT");
+                    userT = rs.getString("userT");
+                    passT = rs.getString("passwordT");
                     IdGender = rs.getInt("idGenderfk");
                     IdCity = rs.getInt("idcitiesfk");
 
-                    ls.add(new Student(idc, noms, noms2, surnames, surname2s,mobile,address,stratum,insEmail,cusM1,cusM2,userS,passS,IdGender,IdCity));
+                    lt.add(new Teacher(idt, nomt, nomt2, surnamet, surname2t,mobilet,addresst,stratumt,insEmailt,busPosT,workDayT,userT,passT,IdGender,IdCity));
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(Gender.class.getName()).log(Level.SEVERE, null, ex);
@@ -247,7 +247,7 @@ public class Teacher {
 
         }
 
-        return ls;
+        return lt;
     }
 
 }
