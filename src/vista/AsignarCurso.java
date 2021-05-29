@@ -11,8 +11,10 @@ import modelo.Subject;
 import modelo.Teacher;
 import controlador.ControladorCourse;
 import controlador.ControladorSubject;
+import controlador.ControladorSubjectByCourse;
 import controlador.ControladorTeacher;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -170,7 +172,7 @@ public class AsignarCurso extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         String asignatura = String.valueOf(asignaturaBox.getSelectedItem());
-        int ida=0;
+        int ids=0;
         for (int i = 0; i < listas.size(); i++) {
             Subject asignatura1 = listas.get(i);
             if(asignatura.equals(asignatura1.getNameSub())){
@@ -179,7 +181,13 @@ public class AsignarCurso extends javax.swing.JFrame {
             }
         }    
     
-
+        ControladorSubjectByCourse cbc= new ControladorSubjectByCourse();
+         if(cbc.asignarMateriaCurso(ids, idc, idt)){
+                     JOptionPane.showMessageDialog(null, "Asignación de curso Exitosa");
+                }else{
+                    JOptionPane.showMessageDialog(null, "Asignación de curso Fallida");
+                }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
