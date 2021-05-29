@@ -196,12 +196,14 @@ public class AsignarCurso extends javax.swing.JFrame {
         for (int i = 0; i < listat.size(); i++) {
             Teacher profe1 = listat.get(i);
             if (profesor.equals(profe1.getName1T())) {
-                idc = profe1.getTeacherID();
+                idt = profe1.getTeacherID();
 
             }
         }  
         
-        
+        System.out.println(ids);
+         System.out.println(idc);
+          System.out.println(idt);
         ControladorSubjectByCourse cbc= new ControladorSubjectByCourse();
          if(cbc.asignarMateriaCurso(ids, idc, idt)){
                      JOptionPane.showMessageDialog(null, "Asignación de curso Exitosa");
