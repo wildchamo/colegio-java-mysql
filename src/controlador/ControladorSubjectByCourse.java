@@ -14,10 +14,10 @@ import modelo.Teacher;
  * @author wild.chamo
  */
 public class ControladorSubjectByCourse {
-        public boolean asignarMateriaCurso(Subject materia,Course curso,Teacher profesor){
+        public boolean asignarMateriaCurso(int materia,int curso,int profesor){
         boolean t = false;
-        String sql = "INSERT INTO subjects_by_course(subjectIDfk, courseIDfk, teacherIDfk ) VALUE(" + materia.getSubjectID() + ", " 
-                + curso.getCourseID() + ", " +profesor.getTeacherID()+ ");";
+        String sql = "INSERT INTO subjects_by_course(subjectIDfk, courseIDfk, teacherIDfk ) VALUE(" + materia + ", " 
+                + curso + ", " +profesor+ ");";
         BaseDatos objbd = new BaseDatos();
         t = objbd.ejecutarSQL(sql); 
         return t;
