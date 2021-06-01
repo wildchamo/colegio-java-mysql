@@ -212,7 +212,7 @@ public class AsignarNota extends javax.swing.JFrame {
             for (int i = 0; i < listas.size(); i++) {
                 Subject asignatura = listas.get(i);
                 asignaturaBox.addItem(asignatura.getNameSub());
-               // estudianteBox.addItem(asignatura.getNameSub());
+              
 
             }
         }
@@ -224,7 +224,7 @@ public class AsignarNota extends javax.swing.JFrame {
             for (int i = 0; i < listast.size(); i++) {
                 Student estudiante = listast.get(i);
                 estudianteBox.addItem(estudiante.getName1S());
-               // estudianteBox.addItem(asignatura.getNameSub());
+               
 
             }
         }
