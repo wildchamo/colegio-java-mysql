@@ -5,6 +5,7 @@
  */
 package modelo;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -256,5 +257,27 @@ public class Student {
 
         return ls;
     }
-
+    
+    public LinkedList <vistaEstudianteCurso> buscarEstudianteCurso(String sql){
+        LinkedList<vistaEstudianteCurso> listaEC= new LinkedList<>();
+        ResultSet rs;
+        String nombreEstudiante;
+        String nombreCurso;
+        BaseDatos objbd= new BaseDatos();
+        if(objbd.crearConexion()){
+            try{
+                PreparedStatement st=objbd.getConexion().prepareStatement(sql);
+                rs= st.executeQuery();
+                while(rs.next()){
+                    nombreEstudiante= rs.getString("nombreEstudiante");
+                    nombreCurso= rs.getString("nombreCurso");
+                    listaEC.add(new vistaEstudianteCurso(nombreEstudiante,nombreCurso));
+                }
+            }catch(SQLException ex){
+                Logger.getLogger(Student.class.getName()).log(Level.SEVERE,null,ex);
+            }
+        }
+        return listaEC;
+    }
+    
 }
