@@ -28,13 +28,13 @@ public class ControladorStudent {
         return ls;
     }
     
-        public LinkedList<Student> consultarEstudiantesPorAsignatura() {
+     /*   public LinkedList<Student> consultarEstudiantesPorAsignatura() {
         LinkedList<Student> ls=null;
         String sql="select * from students;";
         Student objc=new Student();
         ls=objc.consultarEstudiantes(sql);
         return ls;
     }
-    
+    */
     
 }

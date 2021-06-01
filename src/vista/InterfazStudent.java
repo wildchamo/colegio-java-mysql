@@ -309,22 +309,22 @@ public class InterfazStudent extends javax.swing.JFrame {
         String apellido2 = apellido2Box.getText();
         String celular = celularBox.getText();
         String direccion = direccionBox.getText();
+        
         int indexG = Genero.getSelectedIndex();
+        
         String estrato = estratoBox.getSelectedItem().toString();
         String correoIns = correoInsBox.getText();
         String noAcudiente1 = noAcudienteBox1.getText();
         String noAcudiente2 = noAcudienteBox2.getText();
         String usuario = usuarioBox.getText();
         String contrasenia = contraseniaBox.getText();
+        
         int indexC = ciudadBox.getSelectedIndex();
-        
-        
-        String jornada= jornadaBox.getSelectedItem().toString();
-        Enrrolment matricula= new Enrrolment(jornada);
-        
-        
-        
-            String curso = String.valueOf(cursosBox.getSelectedItem());
+
+        String jornada = jornadaBox.getSelectedItem().toString();
+        Enrrolment matricula = new Enrrolment(jornada);
+
+        String curso = String.valueOf(cursosBox.getSelectedItem());
         int idc = 0;
         for (int i = 0; i < listaco.size(); i++) {
             Course curso1 = listaco.get(i);
@@ -334,12 +334,10 @@ public class InterfazStudent extends javax.swing.JFrame {
             }
         }
 
-        
         Student estudiante = new Student(nombre1, nombre2, apellido1, apellido2, celular, direccion, estrato, correoIns, noAcudiente1, noAcudiente2, usuario, contrasenia, indexC + 1, indexG + 1);
         ControladorStudent cs = new ControladorStudent();
 
         boolean t = cs.insertStudent(estudiante);
-
 
         if (t) {
 
@@ -350,14 +348,13 @@ public class InterfazStudent extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Insercion Fallida");
 
         }
-                LinkedList<Student> estudiantes = cs.consultarEstudiantes();
-                ControladorEnrrolment controladorEn=new ControladorEnrrolment();
-                if(controladorEn.asignarCurso(matricula, estudiantes.getLast(), idc)){
-                     JOptionPane.showMessageDialog(null, "Asignación de curso Exitosa");
-                }else{
-                    JOptionPane.showMessageDialog(null, "Asignación de curso Fallida");
-                }
-        
+        LinkedList<Student> estudiantes = cs.consultarEstudiantes();
+        ControladorEnrrolment controladorEn = new ControladorEnrrolment();
+        if (controladorEn.asignarCurso(matricula, estudiantes.getLast(), idc)) {
+            JOptionPane.showMessageDialog(null, "Asignación de curso Exitosa");
+        } else {
+            JOptionPane.showMessageDialog(null, "Asignación de curso Fallida");
+        }
 
 
     }//GEN-LAST:event_IngresarActionPerformed
@@ -396,11 +393,8 @@ public class InterfazStudent extends javax.swing.JFrame {
 
             }
         }
-        
-        
-        
-        
-        
+
+
     }//GEN-LAST:event_formWindowOpened
 
     private void GeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GeneroActionPerformed
