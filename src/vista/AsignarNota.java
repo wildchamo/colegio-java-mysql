@@ -6,6 +6,7 @@
 package vista;
 
 import java.util.LinkedList;
+import modelo.Student;
 import modelo.Subject;
 
 /**
@@ -146,7 +147,15 @@ LinkedList<Student> listast;
             
             }
         }   
-        
+             String estudiante = String.valueOf(estudianteBox.getSelectedItem());
+        int idst=0;
+        for (int i = 0; i < listast.size(); i++) {
+            Student estudiante1 = listast.get(i);
+            if(asignatura.equals(estudiante1.getName1S())){
+                idst=estudiante1.getStudentID();
+            
+            }
+        }  
         
       
     }//GEN-LAST:event_jButton1ActionPerformed
