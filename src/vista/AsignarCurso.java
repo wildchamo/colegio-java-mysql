@@ -172,15 +172,15 @@ public class AsignarCurso extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         String asignatura = String.valueOf(asignaturaBox.getSelectedItem());
-        int ids=0;
+        int ids = 0;
         for (int i = 0; i < listas.size(); i++) {
             Subject asignatura1 = listas.get(i);
-            if(asignatura.equals(asignatura1.getNameSub())){
-                ids=asignatura1.getSubjectID();
-            
+            if (asignatura.equals(asignatura1.getNameSub())) {
+                ids = asignatura1.getSubjectID();
+
             }
-        }    
-    
+        }
+
         String curso = String.valueOf(cursosBox.getSelectedItem());
         int idc = 0;
         for (int i = 0; i < listaco.size(); i++) {
@@ -189,9 +189,9 @@ public class AsignarCurso extends javax.swing.JFrame {
                 idc = curso1.getCourseID();
 
             }
-        }  
-        
-            String profesor = String.valueOf(profesorBox.getSelectedItem());
+        }
+
+        String profesor = String.valueOf(profesorBox.getSelectedItem());
         int idt = 0;
         for (int i = 0; i < listat.size(); i++) {
             Teacher profe1 = listat.get(i);
@@ -199,18 +199,18 @@ public class AsignarCurso extends javax.swing.JFrame {
                 idt = profe1.getTeacherID();
 
             }
-        }  
-        
+        }
+
         System.out.println(ids);
-         System.out.println(idc);
-          System.out.println(idt);
-        ControladorSubjectByCourse cbc= new ControladorSubjectByCourse();
-         if(cbc.asignarMateriaCurso(ids, idc, idt)){
-                     JOptionPane.showMessageDialog(null, "Asignación de curso Exitosa");
-                }else{
-                    JOptionPane.showMessageDialog(null, "Asignación de curso Fallida");
-                }
-        
+        System.out.println(idc);
+        System.out.println(idt);
+        ControladorSubjectByCourse cbc = new ControladorSubjectByCourse();
+        if (cbc.asignarMateriaCurso(ids, idc, idt)) {
+            JOptionPane.showMessageDialog(null, "Asignación de curso Exitosa");
+        } else {
+            JOptionPane.showMessageDialog(null, "Asignación de curso Fallida");
+        }
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

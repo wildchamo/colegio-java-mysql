@@ -91,7 +91,7 @@ public class InterfazSubject extends javax.swing.JFrame {
            boolean t = css.insertSubject(asignatura);
 
         if (t) {
-            JOptionPane.showMessageDialog(null, "Se insertó la ciudad");
+            JOptionPane.showMessageDialog(null, "Se insertó la asignatura");
         } else {
             JOptionPane.showMessageDialog(null, "No se realiza el insert");
         }

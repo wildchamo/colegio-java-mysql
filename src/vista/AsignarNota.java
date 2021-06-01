@@ -9,6 +9,8 @@ import controlador.ControladorScore;
 import controlador.ControladorSubject;
 import static java.lang.Integer.parseInt;
 import java.util.LinkedList;
+import javax.swing.JOptionPane;
+import modelo.Score;
 import modelo.Student;
 import modelo.Subject;
 
@@ -181,10 +183,18 @@ public class AsignarNota extends javax.swing.JFrame {
         int nota2 = parseInt(nota2Box.getText());
         int nota3 = parseInt(nota3Box.getText());
         int nota4 = parseInt(nota4Box.getText());
+       
         
+        Score notaEstudiante= new Score(nota1, nota2, nota3, nota4, ids,idst);
         ControladorScore css= new ControladorScore();
         
-        
+        boolean t = css.insertScore(notaEstudiante);
+
+        if (t) {
+            JOptionPane.showMessageDialog(null, "Se insertó la ciudad");
+        } else {
+            JOptionPane.showMessageDialog(null, "No se realiza el insert");
+        }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
