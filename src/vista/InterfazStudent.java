@@ -324,8 +324,15 @@ public class InterfazStudent extends javax.swing.JFrame {
         
         
         
-        
-        int indexCurso= cursosBox.getSelectedIndex();
+            String curso = String.valueOf(cursosBox.getSelectedItem());
+        int idc = 0;
+        for (int i = 0; i < listaco.size(); i++) {
+            Course curso1 = listaco.get(i);
+            if (curso.equals(curso1.getNameC())) {
+                idc = curso1.getCourseID();
+
+            }
+        }
 
         
         Student estudiante = new Student(nombre1, nombre2, apellido1, apellido2, celular, direccion, estrato, correoIns, noAcudiente1, noAcudiente2, usuario, contrasenia, indexC + 1, indexG + 1);
@@ -345,7 +352,7 @@ public class InterfazStudent extends javax.swing.JFrame {
         }
                 LinkedList<Student> estudiantes = cs.consultarEstudiantes();
                 ControladorEnrrolment controladorEn=new ControladorEnrrolment();
-                if(controladorEn.asignarCurso(matricula, estudiantes.getLast(), indexCurso)){
+                if(controladorEn.asignarCurso(matricula, estudiantes.getLast(), idc)){
                      JOptionPane.showMessageDialog(null, "Asignación de curso Exitosa");
                 }else{
                     JOptionPane.showMessageDialog(null, "Asignación de curso Fallida");

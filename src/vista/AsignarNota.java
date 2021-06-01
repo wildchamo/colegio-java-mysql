@@ -205,7 +205,7 @@ public class AsignarNota extends javax.swing.JFrame {
             for (int i = 0; i < listas.size(); i++) {
                 Subject asignatura = listas.get(i);
                 asignaturaBox.addItem(asignatura.getNameSub());
-                estudianteBox.addItem(asignatura.getNameSub());
+               // estudianteBox.addItem(asignatura.getNameSub());
 
             }
         }
