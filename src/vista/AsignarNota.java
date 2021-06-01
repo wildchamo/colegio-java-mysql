@@ -65,6 +65,12 @@ public class AsignarNota extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Asignar Nota");
 
+        estudianteBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                estudianteBoxActionPerformed(evt);
+            }
+        });
+
         jLabel2.setText("Nota 1");
 
         jLabel3.setText("Nota 2");
@@ -225,6 +231,10 @@ public class AsignarNota extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_formWindowOpened
+
+    private void estudianteBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estudianteBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_estudianteBoxActionPerformed
 
     /**
      * @param args the command line arguments
