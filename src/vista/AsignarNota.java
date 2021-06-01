@@ -6,6 +6,7 @@
 package vista;
 
 import controlador.ControladorScore;
+import controlador.ControladorStudent;
 import controlador.ControladorSubject;
 import static java.lang.Integer.parseInt;
 import java.util.LinkedList;
@@ -205,6 +206,18 @@ public class AsignarNota extends javax.swing.JFrame {
             for (int i = 0; i < listas.size(); i++) {
                 Subject asignatura = listas.get(i);
                 asignaturaBox.addItem(asignatura.getNameSub());
+               // estudianteBox.addItem(asignatura.getNameSub());
+
+            }
+        }
+        
+        
+        ControladorStudent objcss = new ControladorStudent();
+        listast = objcss.consultarEstudiantesPorCurso(1);
+        if (!listast.isEmpty()) {
+            for (int i = 0; i < listast.size(); i++) {
+                Student estudiante = listast.get(i);
+                estudianteBox.addItem(estudiante.getName1S());
                // estudianteBox.addItem(asignatura.getNameSub());
 
             }
