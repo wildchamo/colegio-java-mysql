@@ -112,16 +112,16 @@ public class InterfaceVistaEsudianteCurso extends javax.swing.JFrame {
         String sql = "SELECT * FROM escuela.consultarestudiantescursos;";
         LinkedList<vistaEstudianteCurso> vec = objs.buscarEstudianteCurso(sql);
 
-        for (int i = 0; i < vec.size(); i++) {
-            vistaEstudianteCurso get = vec.get(i);
-            System.out.println("Datos de la vista" + get.toString() + "\n");
-            DefaultTableModel model = (DefaultTableModel) TablaVista.getModel();
+            for (int i = 0; i < vec.size(); i++) {
+                vistaEstudianteCurso get = vec.get(i);
+                System.out.println("Datos de la vista" + get.toString() + "\n");
+                DefaultTableModel model = (DefaultTableModel) TablaVista.getModel();
 
-            for (vistaEstudianteCurso vistasc : vec) {
-                model.addRow(new Object[]{vistasc.getNombreEstudiante(), vistasc.getNameCourse()});
-                TablaVista.setModel(model);
+                for (vistaEstudianteCurso vistasc : vec) {
+                    model.addRow(new Object[]{vistasc.getNombreEstudiante(), vistasc.getNameCourse()});
+                    TablaVista.setModel(model);
+                }
             }
-        }
 
 
     }//GEN-LAST:event_formWindowOpened
