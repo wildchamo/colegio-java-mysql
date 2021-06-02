@@ -5,6 +5,7 @@
  */
 package modelo;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -248,6 +249,33 @@ public class Teacher {
         }
 
         return lt;
+    }
+    
+    
+        public LinkedList <ProfesorCursoAsignatura> buscarProfeCursoAsig(String sql){
+        LinkedList<ProfesorCursoAsignatura> listaPCA= new LinkedList<>();
+        ResultSet rs;
+        int id;
+        String nombreProfesor;
+        String nombreCurso;
+        String nombreAsignatura;
+        BaseDatos objbd= new BaseDatos();
+        if(objbd.crearConexion()){
+            try{
+                PreparedStatement st=objbd.getConexion().prepareStatement(sql);
+                rs= st.executeQuery();
+                while(rs.next()){
+                    id= rs.getInt("ID");
+                    nombreProfesor= rs.getString("NombreProfesor");
+                    nombreCurso= rs.getString("NombreCurso");
+                    nombreAsignatura= rs.getString("NombreAsignatura");
+                    listaPCA.add(new ProfesorCursoAsignatura(id,nombreProfesor,nombreCurso,nombreAsignatura));
+                }
+            }catch(SQLException ex){
+                Logger.getLogger(Student.class.getName()).log(Level.SEVERE,null,ex);
+            }
+        }
+        return listaPCA;
     }
 
 }
