@@ -122,6 +122,7 @@ public class InterfaceVistaEsudianteCurso extends javax.swing.JFrame {
 
                 for (vistaEstudianteCurso vistasc : vec) {
                     model.addRow(new Object[]{vistasc.getNombreEstudiante(), false});
+                    model.addRow(new Object[]{vistasc.getNameCourse(), false});
                     TablaVista.setModel(model);
                 }
         }
