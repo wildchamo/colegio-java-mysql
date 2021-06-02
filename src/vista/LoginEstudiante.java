@@ -108,7 +108,7 @@ public class LoginEstudiante extends javax.swing.JFrame {
         
         if (t) {
 
-            interfazCity form = new interfazCity();
+            MostrarNotasEstudiante form = new MostrarNotasEstudiante();
             form.setVisible(true);
             this.dispose();
         } else {
