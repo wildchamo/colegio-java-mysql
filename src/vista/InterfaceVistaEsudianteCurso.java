@@ -5,7 +5,11 @@
  */
 package vista;
 
+import java.net.UnknownHostException;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 import modelo.Student;
 import modelo.vistaEstudianteCurso;
 
@@ -33,7 +37,7 @@ public class InterfaceVistaEsudianteCurso extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TablaVista = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -45,7 +49,7 @@ public class InterfaceVistaEsudianteCurso extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Vista de estudiante y curso ");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TablaVista.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -71,10 +75,10 @@ public class InterfaceVistaEsudianteCurso extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
+        jScrollPane1.setViewportView(TablaVista);
+        if (TablaVista.getColumnModel().getColumnCount() > 0) {
+            TablaVista.getColumnModel().getColumn(0).setResizable(false);
+            TablaVista.getColumnModel().getColumn(1).setResizable(false);
         }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -114,9 +118,19 @@ public class InterfaceVistaEsudianteCurso extends javax.swing.JFrame {
         for(int i=0; i<vec.size();i++){
             vistaEstudianteCurso get= vec.get(i);
             System.out.println("Datos de la vista"+get.toString() +"\n");
-            
+            DefaultTableModel model = (DefaultTableModel) TablaVista.getModel();
+
+                for (vistaEstudianteCurso vistasc : vec) {
+                    model.addRow(new Object[]{vistasc.getNombreEstudiante(), false});
+                    TablaVista.setModel(model);
+                }
         }
         
+        
+        
+        
+
+ 
     }//GEN-LAST:event_formWindowOpened
 
     /**
@@ -155,8 +169,8 @@ public class InterfaceVistaEsudianteCurso extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable TablaVista;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
