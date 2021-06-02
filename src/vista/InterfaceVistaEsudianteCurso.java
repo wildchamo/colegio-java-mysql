@@ -51,10 +51,7 @@ public class InterfaceVistaEsudianteCurso extends javax.swing.JFrame {
 
         TablaVista.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "Nombre estudiante", "Nombre curso"
@@ -110,28 +107,23 @@ public class InterfaceVistaEsudianteCurso extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-        
-        Student objs=new Student();
-        String sql="SELECT * FROM escuela.consultarestudiantescursos;";
-        LinkedList<vistaEstudianteCurso> vec= objs.buscarEstudianteCurso(sql);
-        
-        for(int i=0; i<vec.size();i++){
-            vistaEstudianteCurso get= vec.get(i);
-            System.out.println("Datos de la vista"+get.toString() +"\n");
+
+        Student objs = new Student();
+        String sql = "SELECT * FROM escuela.consultarestudiantescursos;";
+        LinkedList<vistaEstudianteCurso> vec = objs.buscarEstudianteCurso(sql);
+
+        for (int i = 0; i < vec.size(); i++) {
+            vistaEstudianteCurso get = vec.get(i);
+            System.out.println("Datos de la vista" + get.toString() + "\n");
             DefaultTableModel model = (DefaultTableModel) TablaVista.getModel();
 
-                for (vistaEstudianteCurso vistasc : vec) {
-                    model.addRow(new Object[]{vistasc.getNombreEstudiante(), false});
-                    model.addRow(new Object[]{vistasc.getNameCourse(), false});
-                    TablaVista.setModel(model);
-                }
+            for (vistaEstudianteCurso vistasc : vec) {
+                model.addRow(new Object[]{vistasc.getNombreEstudiante(), vistasc.getNameCourse()});
+                TablaVista.setModel(model);
+            }
         }
-        
-        
-        
-        
 
- 
+
     }//GEN-LAST:event_formWindowOpened
 
     /**

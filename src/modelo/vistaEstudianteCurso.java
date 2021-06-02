@@ -18,6 +18,9 @@ public class vistaEstudianteCurso {
         this.nombreEstudiante = nombreEstudiante;
         this.nameCourse = nameCourse;
     }
+
+    public vistaEstudianteCurso() {
+    }
     
     
 
@@ -41,6 +44,7 @@ public class vistaEstudianteCurso {
     public String toString() {
         return "vistaEstudianteCurso{" + "nombreEstudiante=" + nombreEstudiante + ", nameCourse=" + nameCourse + '}';
     }
+
     
     
 }
