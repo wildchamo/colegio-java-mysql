@@ -31,4 +31,20 @@ public class ControladorCity {
 
         return lg;
     }
+        public boolean actualizarCiudad(City objc, int id) {
+        boolean t = false;
+        String sql = "UPDATE cities SET `nameC`= ? WHERE idCity = " + id;
+        t = objc.actualizarCiudad(sql, objc);
+
+        return t;
+    }
+
+        public LinkedList<City> consultarUnaCiudad(String nombreCiudad) {
+
+        LinkedList<City> lc=null;
+        String sql = "SELECT * FROM cities WHERE nameC='" + nombreCiudad +"'";
+        City objc=new City();
+        lc=objc.consultarCiudades(sql);
+        return lc;
+    }
 }
