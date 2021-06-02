@@ -5,7 +5,9 @@
  */
 package vista;
 
+import java.util.LinkedList;
 import modelo.Student;
+import modelo.vistaEstudianteCurso;
 
 /**
  *
@@ -55,8 +57,13 @@ public class InterfaceVistaEsudianteCurso extends javax.swing.JFrame {
         
         Student objs=new Student();
         String sql="SELECT * FROM escuela.consultarestudiantescursos;";
+        LinkedList<vistaEstudianteCurso> vec= objs.buscarEstudianteCurso(sql);
         
-        
+        for(int i=0; i<vec.size();i++){
+            vistaEstudianteCurso get= vec.get(i);
+            System.out.println("Datos de la vista"+get.toString() +"\n");
+            
+        }
         
     }//GEN-LAST:event_formWindowOpened
 
