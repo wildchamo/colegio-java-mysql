@@ -38,5 +38,14 @@ public class ControladorStudent {
         ls = objc.consultarEstudiantes(sql);
         return ls;
     }
+    
+    public boolean validarUsuario(String usuario,String contrasenia){
+        boolean t=false;
+        String sql= "SELECT * FROM STUDENTS WHERE userS='"+ usuario +"' AND passwordS='"+ contrasenia+ "';";
+        BaseDatos objbd= new BaseDatos();
+        t=objbd.ejecutarSQL(sql);
+        return t;
+        
+    }
 
 }
