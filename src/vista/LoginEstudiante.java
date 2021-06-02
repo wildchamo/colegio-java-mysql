@@ -5,6 +5,9 @@
  */
 package vista;
 
+import controlador.ControladorStudent;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author wild.chamo
@@ -96,9 +99,22 @@ public class LoginEstudiante extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
-        String usuario;
-        String password;
+        String usuario = Usuario.getText();
+        String password = Contrasenia.getText();
+
+        ControladorStudent cs = new ControladorStudent();
+        boolean t = cs.validarUsuario(usuario, password);
+       
         
+        if (t) {
+
+            interfazCity form = new interfazCity();
+            form.setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "El usuario no existe");
+
+        };
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     /**

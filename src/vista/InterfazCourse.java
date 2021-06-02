@@ -133,7 +133,7 @@ public class InterfazCourse extends javax.swing.JFrame {
         String salonClase=salonClaseBox.getText();
        String imagen= imagenes.getSelectedFile().toString();
        
-        String rutaImg= "D:\\descargas/uao.png";
+        //String rutaImg= "D:\\descargas/uao.png";
         
         Course curso= new Course(nombreCurso,salonClase,imagen);
         ControladorCourse cc= new ControladorCourse();

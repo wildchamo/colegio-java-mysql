@@ -43,7 +43,7 @@ public class ControladorStudent {
         boolean t=false;
         String sql= "SELECT * FROM STUDENTS WHERE userS='"+ usuario +"' AND passwordS='"+ contrasenia+ "';";
         BaseDatos objbd= new BaseDatos();
-        t=objbd.ejecutarSQL(sql);
+        t=objbd.ejecutarSQLQ(sql);
         return t;
         
     }

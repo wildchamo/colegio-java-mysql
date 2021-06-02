@@ -73,6 +73,25 @@ public class BaseDatos {
         return t;
     }
     
-    
+        public boolean ejecutarSQLQ(String sql) {
+        boolean t=false;
+        
+        if(crearConexion()){
+            try {
+                st=conexion.createStatement();
+                ResultSet rs=st.executeQuery(sql);
+                
+                if(rs.next()){
+                    t=true;
+                }
+                        
+            } catch (SQLException ex) {
+                Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+        
+        return t;
+    }
     
 }
