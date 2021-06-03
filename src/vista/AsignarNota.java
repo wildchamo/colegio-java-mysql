@@ -235,12 +235,12 @@ public class AsignarNota extends javax.swing.JFrame {
         }
         
         
-        String estudiante = String.valueOf(estudianteBox.getSelectedItem());
-        int idst = 0;
-        for (int i = 0; i < listast.size(); i++) {
-            Student estudiante1 = listast.get(i);
-            if (estudiante.equals(estudiante1.getName1S())) {
-                idst = estudiante1.getStudentID();
+        String curso = String.valueOf(cursosBox.getSelectedItem());
+        int idstc = 0;
+        for (int i = 0; i < listacc.size(); i++) {
+            Course curso1 = listacc.get(i);
+            if (curso.equals(curso1.getNameC())) {
+                idstc = curso1.getCourseID();
 
             }
         }
@@ -275,8 +275,6 @@ public class AsignarNota extends javax.swing.JFrame {
 
             }
         }
-        
-        
         ControladorStudent objcss = new ControladorStudent();
         listast = objcss.consultarEstudiantesPorCurso(1);
         if (!listast.isEmpty()) {
