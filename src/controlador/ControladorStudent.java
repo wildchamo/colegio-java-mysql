@@ -48,7 +48,7 @@ public class ControladorStudent {
         
     }
     
-         public boolean insertScore(int idEstudiante) {
+         public boolean MostrarNotas(int idEstudiante) {
         boolean t = false;
         String sql = "{call mostrarNotasEstudiante("+ idEstudiante + ");";
         BaseDatos objbd = new BaseDatos();

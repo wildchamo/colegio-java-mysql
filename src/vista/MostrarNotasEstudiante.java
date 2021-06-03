@@ -5,6 +5,8 @@
  */
 package vista;
 
+import controlador.ControladorStudent;
+
 /**
  *
  * @author wild.chamo
@@ -33,6 +35,11 @@ public class MostrarNotasEstudiante extends javax.swing.JFrame {
         cerrarSesion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -112,6 +119,19 @@ public class MostrarNotasEstudiante extends javax.swing.JFrame {
             form.setVisible(true);
             this.dispose();
     }//GEN-LAST:event_cerrarSesionActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        ControladorStudent css= new ControladorStudent ();
+        boolean t=css.MostrarNotas(1);
+        
+        if(t){
+            
+        }
+        
+        
+        
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
