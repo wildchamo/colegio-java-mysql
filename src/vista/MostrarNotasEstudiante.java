@@ -6,6 +6,7 @@
 package vista;
 
 import controlador.ControladorStudent;
+import java.util.LinkedList;
 
 /**
  *
@@ -126,7 +127,7 @@ public class MostrarNotasEstudiante extends javax.swing.JFrame {
         boolean t=css.MostrarNotas(1);
         
         if(t){
-            
+            LinkedList<>
         }
         
         

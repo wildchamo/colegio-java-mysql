@@ -280,4 +280,37 @@ public class Student {
         return listaEC;
     }
     
+    
+        public LinkedList <NotasEstudiante> MostrarNotas(String sql){
+        LinkedList<NotasEstudiante> listaNE= new LinkedList<>();
+        ResultSet rs;
+        int id ;
+        String Asignatura;
+        double nota1;
+        double nota2;
+        double nota3;
+        double nota4;
+  
+        
+        BaseDatos objbd= new BaseDatos();
+        if(objbd.crearConexion()){
+            try{
+                PreparedStatement st=objbd.getConexion().prepareStatement(sql);
+                rs= st.executeQuery();
+                while(rs.next()){
+                    id= rs.getInt("id");
+                    Asignatura= rs.getString("Asignatura");
+                    nota1=rs.getDouble("nota 1");
+                    nota2=rs.getDouble("nota 2");
+                    nota3=rs.getDouble("nota 3");
+                    nota4=rs.getDouble("nota 4");
+                    listaNE.add(new NotasEstudiante(id,Asignatura,nota1,nota2,nota3,nota4));
+                }
+            }catch(SQLException ex){
+                Logger.getLogger(Student.class.getName()).log(Level.SEVERE,null,ex);
+            }
+        }
+        return listaNE;
+    }
+    
 }

@@ -7,6 +7,7 @@ package controlador;
 
 import java.util.LinkedList;
 import modelo.BaseDatos;
+import modelo.NotasEstudiante;
 import modelo.Student;
 
 /**
@@ -48,12 +49,13 @@ public class ControladorStudent {
         
     }
     
-         public boolean MostrarNotas(int idEstudiante) {
-        boolean t = false;
+         public LinkedList<NotasEstudiante> MostrarNotas(int idEstudiante) {
+         LinkedList<NotasEstudiante> ls = null;
         String sql = "{call mostrarNotasEstudiante("+ idEstudiante + ");";
         BaseDatos objbd = new BaseDatos();
-        t = objbd.ejecutarSQL(sql);
-        return t;
+        Student objc = new Student();
+        ls = objc.MostrarNotas(sql);
+        return ls;
     }
 
 }
