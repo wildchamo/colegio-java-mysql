@@ -275,6 +275,8 @@ public class AsignarNota extends javax.swing.JFrame {
 
             }
         }
+        
+        
         ControladorStudent objcss = new ControladorStudent();
         listast = objcss.consultarEstudiantesPorCurso(1);
         if (!listast.isEmpty()) {

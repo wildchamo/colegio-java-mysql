@@ -3,8 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/D:/Documents/NetBeansProjects/colegioF/src/vista/InterfaceVistaEsudianteCurso.java</file>
+            <file>file:/D:/Documents/NetBeansProjects/colegioF/src/controlador/ControladorCourse.java</file>
             <file>file:/D:/Documents/NetBeansProjects/colegioF/src/vista/LoginEstudiante.java</file>
-            <file>file:/D:/Documents/NetBeansProjects/colegioF/src/vista/MostrarNotasEstudiante.java</file>
+            <file>file:/D:/Documents/NetBeansProjects/colegioF/src/vista/AsignarNota.java</file>
         </group>
     </open-files>
 </project-private>

@@ -19,8 +19,18 @@ public class MostrarNotasEstudiante extends javax.swing.JFrame {
     /**
      * Creates new form MostrarNotasEstudiante
      */
+    
+    private int ids;
     public MostrarNotasEstudiante() {
         initComponents();
+    }
+
+    public int getIds() {
+        return ids;
+    }
+
+    public void setIds(int ids) {
+        this.ids = ids;
     }
 
     /**

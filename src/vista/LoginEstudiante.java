@@ -7,6 +7,7 @@ package vista;
 
 import controlador.ControladorStudent;
 import javax.swing.JOptionPane;
+import modelo.Student;
 
 /**
  *
@@ -103,12 +104,14 @@ public class LoginEstudiante extends javax.swing.JFrame {
         String password = Contrasenia.getText();
 
         ControladorStudent cs = new ControladorStudent();
-        boolean t = cs.validarUsuario(usuario, password);
+        Student s = cs.validarUsuario(usuario, password);
        
         
-        if (t) {
+        if (s!=null) {
 
+            
             MostrarNotasEstudiante form = new MostrarNotasEstudiante();
+            form.setIds(s.getStudentID());
             form.setVisible(true);
             this.dispose();
         } else {

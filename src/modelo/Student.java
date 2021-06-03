@@ -63,6 +63,12 @@ public class Student {
         this.suname2S = suname2S;
     }
 
+    public Student(int studentID, String userS, String passwordS) {
+        this.studentID = studentID;
+        this.userS = userS;
+        this.passwordS = passwordS;
+    }
+
     public Student(int studentID, String name1S, String name2S, String suname1S, String suname2S, String mobileS, String addressS, String stratumS, String institutionalEmailS, String custodianMobile1, String custodianMobile2, String userS, String passwordS, int idCityfk, int idGenderfk) {
         this.studentID = studentID;
         this.name1S = name1S;
@@ -257,7 +263,34 @@ public class Student {
 
         return ls;
     }
-    
+    public Student ejecutarSQLQ(String sql) {
+        Student s=null;
+        int ids;
+        String pass;
+        String namu;
+        BaseDatos bd=new BaseDatos();
+        Statement st;
+        if(bd.crearConexion()){
+            try {
+                st=bd.getConexion().createStatement();
+                ResultSet rs=st.executeQuery(sql);
+                while (rs.next()) {
+                    ids = rs.getInt("studentID");
+                    namu=rs.getString("userS");
+                    pass=rs.getString("passwordS");
+                    
+                    s=new Student(ids, namu, pass);
+                }
+              
+                        
+            } catch (SQLException ex) {
+                Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+        
+        return s;
+    }
     public LinkedList <vistaEstudianteCurso> buscarEstudianteCurso(String sql){
         LinkedList<vistaEstudianteCurso> listaEC= new LinkedList<>();
         ResultSet rs;

@@ -40,12 +40,12 @@ public class ControladorStudent {
         return ls;
     }
     
-    public boolean validarUsuario(String usuario,String contrasenia){
-        boolean t=false;
+    public Student validarUsuario(String usuario,String contrasenia){
+        
         String sql= "SELECT * FROM STUDENTS WHERE userS='"+ usuario +"' AND passwordS='"+ contrasenia+ "';";
-        BaseDatos objbd= new BaseDatos();
-        t=objbd.ejecutarSQLQ(sql);
-        return t;
+        Student objbd= new Student();
+        Student student =objbd.ejecutarSQLQ(sql);
+        return student;
         
     }
     
