@@ -47,5 +47,13 @@ public class ControladorStudent {
         return t;
         
     }
+    
+         public boolean insertScore(int idEstudiante) {
+        boolean t = false;
+        String sql = "{call mostrarNotasEstudiante("+ idEstudiante + ");";
+        BaseDatos objbd = new BaseDatos();
+        t = objbd.ejecutarSQL(sql);
+        return t;
+    }
 
 }
