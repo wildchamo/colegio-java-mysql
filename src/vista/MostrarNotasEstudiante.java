@@ -136,7 +136,7 @@ public class MostrarNotasEstudiante extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         ControladorStudent css= new ControladorStudent ();
-        LinkedList<NotasEstudiante> NE =css.MostrarNotas(1);
+        LinkedList<NotasEstudiante> NE =css.MostrarNotas(ids);
         
           for (int i = 0; i < NE.size(); i++) {
                 NotasEstudiante get = NE.get(i);
