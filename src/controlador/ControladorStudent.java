@@ -51,7 +51,7 @@ public class ControladorStudent {
     
          public LinkedList<NotasEstudiante> MostrarNotas(int idEstudiante) {
          LinkedList<NotasEstudiante> ls = null;
-        String sql = "{call mostrarNotasEstudiante("+ idEstudiante + ");";
+        String sql = "call mostrarNotasEstudiante("+ idEstudiante + ");";
         BaseDatos objbd = new BaseDatos();
         Student objc = new Student();
         ls = objc.MostrarNotas(sql);

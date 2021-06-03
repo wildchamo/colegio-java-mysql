@@ -7,6 +7,8 @@ package vista;
 
 import controlador.ControladorStudent;
 import java.util.LinkedList;
+import javax.swing.table.DefaultTableModel;
+import modelo.NotasEstudiante;
 
 /**
  *
@@ -31,7 +33,7 @@ public class MostrarNotasEstudiante extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        notasE = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         cerrarSesion = new javax.swing.JButton();
 
@@ -42,7 +44,7 @@ public class MostrarNotasEstudiante extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        notasE.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -65,12 +67,12 @@ public class MostrarNotasEstudiante extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
-            jTable1.getColumnModel().getColumn(3).setResizable(false);
+        jScrollPane1.setViewportView(notasE);
+        if (notasE.getColumnModel().getColumnCount() > 0) {
+            notasE.getColumnModel().getColumn(0).setResizable(false);
+            notasE.getColumnModel().getColumn(1).setResizable(false);
+            notasE.getColumnModel().getColumn(2).setResizable(false);
+            notasE.getColumnModel().getColumn(3).setResizable(false);
         }
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -124,11 +126,18 @@ public class MostrarNotasEstudiante extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         ControladorStudent css= new ControladorStudent ();
-        boolean t=css.MostrarNotas(1);
+        LinkedList<NotasEstudiante> NE =css.MostrarNotas(1);
         
-        if(t){
-            LinkedList<>
-        }
+          for (int i = 0; i < NE.size(); i++) {
+                NotasEstudiante get = NE.get(i);
+                System.out.println("Datos de la vista" + get.toString() + "\n");
+                DefaultTableModel model = (DefaultTableModel) notasE.getModel();
+
+                for (NotasEstudiante NOTASE : NE) {
+                    model.addRow(new Object[]{NOTASE.getId(),NOTASE.getAsignatura() ,NOTASE.getNota1() ,NOTASE.getNota2() ,NOTASE.getNota3(),NOTASE.getNota4() });
+                    notasE.setModel(model);
+                }
+            }
         
         
         
@@ -173,6 +182,6 @@ public class MostrarNotasEstudiante extends javax.swing.JFrame {
     private javax.swing.JButton cerrarSesion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable notasE;
     // End of variables declaration//GEN-END:variables
 }
