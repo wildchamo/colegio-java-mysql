@@ -211,7 +211,7 @@ public class AsignarNota extends javax.swing.JFrame {
         boolean t = css.insertScore(notaEstudiante);
 
         if (t) {
-            JOptionPane.showMessageDialog(null, "Se insertó la ciudad");
+            JOptionPane.showMessageDialog(null, "Se insertó la nota con exito");
         } else {
             JOptionPane.showMessageDialog(null, "No se realiza el insert");
         }
