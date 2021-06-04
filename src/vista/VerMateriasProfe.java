@@ -90,7 +90,7 @@ public class VerMateriasProfe extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         System.out.println(idC);
         System.out.println(idT);
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_formWindowOpened
 
     /**
