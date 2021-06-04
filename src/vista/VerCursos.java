@@ -5,12 +5,17 @@
  */
 package vista;
 
+import controlador.ControladorCourse;
+import java.util.LinkedList;
+import modelo.Course;
+
 /**
  *
  * @author wild.chamo
  */
-public class VerMaterias extends javax.swing.JFrame {
+public class VerCursos extends javax.swing.JFrame {
 
+    LinkedList<Course> listaco;
     int idT;
 
     public int getIdT() {
@@ -20,12 +25,11 @@ public class VerMaterias extends javax.swing.JFrame {
     public void setIdT(int idT) {
         this.idT = idT;
     }
-    
-    
+
     /**
      * Creates new form VerMaterias
      */
-    public VerMaterias() {
+    public VerCursos() {
         initComponents();
     }
 
@@ -38,6 +42,8 @@ public class VerMaterias extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        cursosBox = new javax.swing.JComboBox<>();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -49,11 +55,17 @@ public class VerMaterias extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(81, 81, 81)
+                .addComponent(cursosBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(291, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(103, 103, 103)
+                .addComponent(cursosBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(177, Short.MAX_VALUE))
         );
 
         pack();
@@ -62,6 +74,19 @@ public class VerMaterias extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         System.out.println(idT);
+
+        ControladorCourse ccc = new ControladorCourse();
+
+
+        listaco = ccc.MostrarCursosSbc(idT);
+        if (!listaco.isEmpty()) {
+            for (int i = 0; i < listaco.size(); i++) {
+                Course curso = listaco.get(i);
+                cursosBox.addItem(curso.getNameC());
+
+            }
+        }
+
     }//GEN-LAST:event_formWindowOpened
 
     /**
@@ -81,24 +106,26 @@ public class VerMaterias extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VerMaterias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VerCursos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VerMaterias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VerCursos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VerMaterias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VerCursos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VerMaterias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VerCursos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VerMaterias().setVisible(true);
+                new VerCursos().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cursosBox;
     // End of variables declaration//GEN-END:variables
 }

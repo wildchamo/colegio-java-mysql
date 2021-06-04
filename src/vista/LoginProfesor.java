@@ -127,7 +127,7 @@ Inicio ventanaU=new Inicio ();
        
         
            if (t!=null) {
-            VerMaterias form = new VerMaterias();
+            VerCursos form = new VerCursos();
             form.setIdT(t.getTeacherID());
             form.setVisible(true);
             this.dispose();
