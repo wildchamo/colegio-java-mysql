@@ -7,6 +7,7 @@ package controlador;
 
 import java.util.LinkedList;
 import modelo.BaseDatos;
+import modelo.MateriaId;
 import modelo.Subject;
 
 /**
@@ -31,10 +32,13 @@ public class ControladorSubject {
 
         return ls;
     }
-    
-    
-    
-    
+
+    public LinkedList<MateriaId> MostrarMateriaID(int idProfe,int idCurso) {
+        LinkedList<MateriaId> ls = null;
+        String sql = "call mostrarNotasEstudiante(" + idProfe +","+idCurso+ ");";
+        Subject objc = new Subject();
+        ls = objc.MostrarMateriaID(sql);
+        return ls;
+    }
+
 }
-
-

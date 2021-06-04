@@ -81,4 +81,8 @@ public class Subject {
 
         return lcs;
     }
+
+    public LinkedList<MateriaId> MostrarMateriaID(String sql) {
+     
+    }
 }
