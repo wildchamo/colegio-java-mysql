@@ -16,11 +16,10 @@ import modelo.NotasEstudiante;
  */
 public class MostrarNotasEstudiante extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MostrarNotasEstudiante
-     */
     
-    private int ids;
+    
+    
+     private int ids;
     public MostrarNotasEstudiante() {
         initComponents();
     }
@@ -32,7 +31,6 @@ public class MostrarNotasEstudiante extends javax.swing.JFrame {
     public void setIds(int ids) {
         this.ids = ids;
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -135,6 +133,7 @@ public class MostrarNotasEstudiante extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
+              // TODO add your handling code here:
         ControladorStudent css= new ControladorStudent ();
         LinkedList<NotasEstudiante> NE =css.MostrarNotas(ids);
         
@@ -148,8 +147,6 @@ public class MostrarNotasEstudiante extends javax.swing.JFrame {
                     notasE.setModel(model);
                 }
             }
-        
-        
         
     }//GEN-LAST:event_formWindowOpened
 

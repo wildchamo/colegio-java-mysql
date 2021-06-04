@@ -5,19 +5,15 @@
  */
 package vista;
 
-import controlador.ControladorCourse;
 import controlador.ControladorScore;
 import controlador.ControladorStudent;
 import controlador.ControladorSubject;
-import controlador.ControladorTeacher;
 import static java.lang.Integer.parseInt;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
-import modelo.Course;
 import modelo.Score;
 import modelo.Student;
 import modelo.Subject;
-import modelo.Teacher;
 
 /**
  *
@@ -27,8 +23,6 @@ public class AsignarNota extends javax.swing.JFrame {
 
     LinkedList<Subject> listas;
     LinkedList<Student> listast;
-    LinkedList<Course> listacc;
-    LinkedList<Teacher> listastea;
 
     /**
      * Creates new form AsignarNota
@@ -60,10 +54,7 @@ public class AsignarNota extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        profeBox = new javax.swing.JComboBox<>();
-        jLabel8 = new javax.swing.JLabel();
-        cursosBox = new javax.swing.JComboBox<>();
-        jLabel9 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -100,36 +91,32 @@ public class AsignarNota extends javax.swing.JFrame {
 
         jLabel7.setText("Estudiante");
 
-        jLabel8.setText("Profesor");
-
-        cursosBox.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setText("Regresar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cursosBoxActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
-
-        jLabel9.setText("Asignatura");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(asignaturaBox, 0, 54, Short.MAX_VALUE)
+                        .addComponent(estudianteBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7))
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                        .addComponent(jButton2))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel6)
-                            .addComponent(asignaturaBox, 0, 110, Short.MAX_VALUE)
-                            .addComponent(estudianteBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(profeBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cursosBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel4)
                             .addComponent(jLabel5)
@@ -137,66 +124,53 @@ public class AsignarNota extends javax.swing.JFrame {
                             .addComponent(jLabel2))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nota4Box, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
+                            .addComponent(nota4Box, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
                             .addComponent(nota3Box)
                             .addComponent(nota2Box)
-                            .addComponent(nota1Box))
-                        .addContainerGap())))
+                            .addComponent(nota1Box))))
+                .addGap(71, 71, 71))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(174, 174, 174)
-                        .addComponent(jButton1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(140, 140, 140)
+                .addComponent(jLabel1)
+                .addGap(30, 30, 30))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(11, 11, 11)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(asignaturaBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(estudianteBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(profeBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addContainerGap()
+                        .addComponent(jLabel1)
+                        .addGap(35, 35, 35)
                         .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cursosBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addComponent(jLabel2))
-                            .addComponent(nota1Box, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(asignaturaBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel7)
+                        .addGap(11, 11, 11)
+                        .addComponent(estudianteBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(nota1Box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(nota2Box, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nota2Box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(nota3Box, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nota3Box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(nota4Box, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(37, 37, 37)
-                        .addComponent(jButton1)
-                        .addGap(60, 60, 60))))
+                            .addComponent(nota4Box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addGap(44, 44, 44))
         );
 
         pack();
@@ -219,28 +193,6 @@ public class AsignarNota extends javax.swing.JFrame {
             Student estudiante1 = listast.get(i);
             if (estudiante.equals(estudiante1.getName1S())) {
                 idst = estudiante1.getStudentID();
-
-            }
-        }
-        
-        
-        String profesor = String.valueOf(profeBox.getSelectedItem());
-        int idstea = 0;
-        for (int i = 0; i < listastea.size(); i++) {
-            Teacher profesor1 = listastea.get(i);
-            if (profesor.equals(profesor1.getName1T())) {
-                idstea = profesor1.getTeacherID();
-
-            }
-        }
-        
-        
-        String curso = String.valueOf(cursosBox.getSelectedItem());
-        int idstc = 0;
-        for (int i = 0; i < listacc.size(); i++) {
-            Course curso1 = listacc.get(i);
-            if (curso.equals(curso1.getNameC())) {
-                idstc = curso1.getCourseID();
 
             }
         }
@@ -287,28 +239,6 @@ public class AsignarNota extends javax.swing.JFrame {
 
             }
         }
-        
-           ControladorCourse objcc = new ControladorCourse();
-        listacc = objcc.consultarCursos();
-        if (!listacc.isEmpty()) {
-            for (int i = 0; i < listacc.size(); i++) {
-                Course curso = listacc.get(i);
-                cursosBox.addItem(curso.getNameC());
-               
-
-            }
-        }
-        
-        
-           ControladorTeacher objctt = new ControladorTeacher();
-        listastea = objctt.consultarProfesores();
-        if (!listastea.isEmpty()) {
-            for (int i = 0; i < listastea.size(); i++) {
-                Teacher profe = listastea.get(i);
-                profeBox.addItem(profe.getName1T());   
-            }
-        }
-        
 
 
     }//GEN-LAST:event_formWindowOpened
@@ -317,9 +247,11 @@ public class AsignarNota extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_estudianteBoxActionPerformed
 
-    private void cursosBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cursosBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cursosBoxActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+LoginProfesor objAlfa = new LoginProfesor (); 
+       objAlfa.setVisible(true);
+       this.setVisible(false);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -358,9 +290,9 @@ public class AsignarNota extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> asignaturaBox;
-    private javax.swing.JComboBox<String> cursosBox;
     private javax.swing.JComboBox<String> estudianteBox;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -368,12 +300,9 @@ public class AsignarNota extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField nota1Box;
     private javax.swing.JTextField nota2Box;
     private javax.swing.JTextField nota3Box;
     private javax.swing.JTextField nota4Box;
-    private javax.swing.JComboBox<String> profeBox;
     // End of variables declaration//GEN-END:variables
 }
