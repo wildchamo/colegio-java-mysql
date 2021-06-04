@@ -108,8 +108,6 @@ public class LoginEstudiante extends javax.swing.JFrame {
        
         
         if (s!=null) {
-
-            
             MostrarNotasEstudiante form = new MostrarNotasEstudiante();
             form.setIds(s.getStudentID());
             form.setVisible(true);
