@@ -131,13 +131,13 @@ public class VerMateriasProfe extends javax.swing.JFrame {
             }
         }
         
-        System.out.println(idc);
+       // System.out.println(idc);
         
-//         AsignarNota form = new AsignarNota();
-//            form.setIds(idc);
-//            form.setIdC(idC);
-//            form.setVisible(true);
-//            this.dispose();
+         AsignarNota form = new AsignarNota();
+            form.setIds(idc);
+            form.setIdC(idC);
+            form.setVisible(true);
+            this.dispose();
 
 
     }//GEN-LAST:event_SeleccionarActionPerformed
