@@ -16,7 +16,6 @@ import modelo.Subject;
  */
 public class VerMateriasProfe extends javax.swing.JFrame {
 
-    
     LinkedList<MateriaId> listasu;
     int idT;
     int idC;
@@ -28,8 +27,7 @@ public class VerMateriasProfe extends javax.swing.JFrame {
     public void setIdC(int idC) {
         this.idC = idC;
     }
-    
-    
+
     public int getIdT() {
         return idT;
     }
@@ -37,10 +35,7 @@ public class VerMateriasProfe extends javax.swing.JFrame {
     public void setIdT(int idT) {
         this.idT = idT;
     }
-    
-    
-    
-    
+
     /**
      * Creates new form VerMateriasProfe
      */
@@ -59,6 +54,7 @@ public class VerMateriasProfe extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         listaBox = new javax.swing.JComboBox<>();
+        Seleccionar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -69,6 +65,13 @@ public class VerMateriasProfe extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Seleccione asignatura");
+
+        Seleccionar.setText("Seleccionar");
+        Seleccionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SeleccionarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -81,8 +84,12 @@ public class VerMateriasProfe extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(156, 156, 156)
-                        .addComponent(listaBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(listaBox, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(102, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Seleccionar)
+                .addGap(146, 146, 146))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,7 +98,9 @@ public class VerMateriasProfe extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(90, 90, 90)
                 .addComponent(listaBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(143, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                .addComponent(Seleccionar)
+                .addGap(25, 25, 25))
         );
 
         pack();
@@ -100,10 +109,10 @@ public class VerMateriasProfe extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         System.out.println(idC);
         System.out.println(idT);
-        
-        ControladorSubject css= new ControladorSubject();
-        listasu=css.MostrarMateriaID(idT, idC);
-          if (!listasu.isEmpty()) {
+
+        ControladorSubject css = new ControladorSubject();
+        listasu = css.MostrarMateriaID(idT, idC);
+        if (!listasu.isEmpty()) {
             for (int i = 0; i < listasu.size(); i++) {
                 MateriaId MI = listasu.get(i);
                 listaBox.addItem(MI.getNameSub());
@@ -111,6 +120,27 @@ public class VerMateriasProfe extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_formWindowOpened
+
+    private void SeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionarActionPerformed
+        String materiaID = String.valueOf(listaBox.getSelectedItem());
+        int idc = 0;
+        for (int i = 0; i < listasu.size(); i++) {
+            MateriaId MD1 = listasu.get(i);
+            if (materiaID.equals(MD1.getNameSub())) {
+                idc = MD1.getIdsubject_by_courseID();
+            }
+        }
+        
+        System.out.println(idc);
+        
+//         AsignarNota form = new AsignarNota();
+//            form.setIds(idc);
+//            form.setIdC(idC);
+//            form.setVisible(true);
+//            this.dispose();
+
+
+    }//GEN-LAST:event_SeleccionarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -148,6 +178,7 @@ public class VerMateriasProfe extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Seleccionar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JComboBox<String> listaBox;
     // End of variables declaration//GEN-END:variables
