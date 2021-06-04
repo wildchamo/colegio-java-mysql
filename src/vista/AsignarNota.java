@@ -20,9 +20,28 @@ import modelo.Subject;
  * @author wild.chamo
  */
 public class AsignarNota extends javax.swing.JFrame {
-
-    LinkedList<Subject> listas;
+    int ids;
+    int idC;
     LinkedList<Student> listast;
+
+    public int getIds() {
+        return ids;
+    }
+
+    public void setIds(int ids) {
+        this.ids = ids;
+    }
+
+    public int getIdC() {
+        return idC;
+    }
+
+    public void setIdC(int idC) {
+        this.idC = idC;
+    }
+    
+    
+    
 
     /**
      * Creates new form AsignarNota
@@ -41,7 +60,6 @@ public class AsignarNota extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        asignaturaBox = new javax.swing.JComboBox<>();
         estudianteBox = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -52,7 +70,6 @@ public class AsignarNota extends javax.swing.JFrame {
         nota3Box = new javax.swing.JTextField();
         nota4Box = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
 
@@ -87,8 +104,6 @@ public class AsignarNota extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setText("Curso");
-
         jLabel7.setText("Estudiante");
 
         jButton2.setText("Regresar");
@@ -103,14 +118,11 @@ public class AsignarNota extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(asignaturaBox, 0, 54, Short.MAX_VALUE)
-                        .addComponent(estudianteBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jLabel6)
+                    .addComponent(estudianteBox, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
-                .addGap(36, 36, 36)
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1)
@@ -140,28 +152,26 @@ public class AsignarNota extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel1)
-                        .addGap(35, 35, 35)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(asignaturaBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel7)
-                        .addGap(11, 11, 11)
-                        .addComponent(estudianteBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(65, 65, 65)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(nota1Box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(nota2Box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(nota3Box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel3)
+                                    .addComponent(nota2Box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel4)
+                                    .addComponent(nota3Box, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(11, 11, 11)
+                                .addComponent(estudianteBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
@@ -177,15 +187,7 @@ public class AsignarNota extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String asignatura = String.valueOf(asignaturaBox.getSelectedItem());
-        int ids = 0;
-        for (int i = 0; i < listas.size(); i++) {
-            Subject asignatura1 = listas.get(i);
-            if (asignatura.equals(asignatura1.getNameSub())) {
-                ids = asignatura1.getSubjectID();
-
-            }
-        }
+ 
 
         String estudiante = String.valueOf(estudianteBox.getSelectedItem());
         int idst = 0;
@@ -217,20 +219,11 @@ public class AsignarNota extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        ControladorSubject objcs = new ControladorSubject();
-        listas = objcs.consultarAsignaturas();
-        if (!listas.isEmpty()) {
-            for (int i = 0; i < listas.size(); i++) {
-                Subject asignatura = listas.get(i);
-                asignaturaBox.addItem(asignatura.getNameSub());
-              
 
-            }
-        }
         
         
         ControladorStudent objcss = new ControladorStudent();
-        listast = objcss.consultarEstudiantesPorCurso(1);
+        listast = objcss.consultarEstudiantesPorCurso(idC);
         if (!listast.isEmpty()) {
             for (int i = 0; i < listast.size(); i++) {
                 Student estudiante = listast.get(i);
@@ -289,7 +282,6 @@ LoginProfesor objAlfa = new LoginProfesor ();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> asignaturaBox;
     private javax.swing.JComboBox<String> estudianteBox;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -298,7 +290,6 @@ LoginProfesor objAlfa = new LoginProfesor ();
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField nota1Box;
     private javax.swing.JTextField nota2Box;

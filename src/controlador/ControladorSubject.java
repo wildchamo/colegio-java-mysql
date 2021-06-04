@@ -35,7 +35,7 @@ public class ControladorSubject {
 
     public LinkedList<MateriaId> MostrarMateriaID(int idProfe,int idCurso) {
         LinkedList<MateriaId> ls = null;
-        String sql = "call mostrarNotasEstudiante(" + idProfe +","+idCurso+ ");";
+        String sql = "call VerMateriasProfe(" + idProfe +","+idCurso+ ");";
         Subject objc = new Subject();
         ls = objc.MostrarMateriaID(sql);
         return ls;
