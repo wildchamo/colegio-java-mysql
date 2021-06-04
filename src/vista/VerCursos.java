@@ -17,6 +17,17 @@ public class VerCursos extends javax.swing.JFrame {
 
     LinkedList<Course> listaco;
     int idT;
+    int idC;
+
+    public int getIdC() {
+        return idC;
+    }
+
+    public void setIdC(int idC) {
+        this.idC = idC;
+    }
+    
+    
 
     public int getIdT() {
         return idT;
@@ -114,7 +125,22 @@ public class VerCursos extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void SeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeleccionarActionPerformed
-        // TODO add your handling code here:
+        String curso = String.valueOf(cursosBox.getSelectedItem());
+        
+        for (int i = 0; i < listaco.size(); i++) {
+            Course curso1 = listaco.get(i);
+            if (curso.equals(curso1.getNameC())) {
+                idC = curso1.getCourseID();
+            }
+        }
+        
+         VerMateriasProfe form = new VerMateriasProfe();
+            form.setIdT(idT);
+            form.setIdC(idC);
+            form.setVisible(true);
+            this.dispose();
+        
+        
     }//GEN-LAST:event_SeleccionarActionPerformed
 
     /**
