@@ -12,6 +12,16 @@ package vista;
 public class VerMaterias extends javax.swing.JFrame {
 
     int idT;
+
+    public int getIdT() {
+        return idT;
+    }
+
+    public void setIdT(int idT) {
+        this.idT = idT;
+    }
+    
+    
     /**
      * Creates new form VerMaterias
      */
