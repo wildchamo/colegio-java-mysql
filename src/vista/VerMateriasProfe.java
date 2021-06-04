@@ -5,7 +5,9 @@
  */
 package vista;
 
+import controlador.ControladorSubject;
 import java.util.LinkedList;
+import modelo.MateriaId;
 import modelo.Subject;
 
 /**
@@ -15,7 +17,7 @@ import modelo.Subject;
 public class VerMateriasProfe extends javax.swing.JFrame {
 
     
-    LinkedList<Subject> listasu;
+    LinkedList<MateriaId> listasu;
     int idT;
     int idC;
 
@@ -56,6 +58,7 @@ public class VerMateriasProfe extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        listaBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -72,8 +75,13 @@ public class VerMateriasProfe extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(99, 99, 99)
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(99, 99, 99)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(156, 156, 156)
+                        .addComponent(listaBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(102, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -81,7 +89,9 @@ public class VerMateriasProfe extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jLabel1)
-                .addContainerGap(253, Short.MAX_VALUE))
+                .addGap(90, 90, 90)
+                .addComponent(listaBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(143, Short.MAX_VALUE))
         );
 
         pack();
@@ -91,6 +101,15 @@ public class VerMateriasProfe extends javax.swing.JFrame {
         System.out.println(idC);
         System.out.println(idT);
         
+        ControladorSubject css= new ControladorSubject();
+        listasu=css.MostrarMateriaID(idT, idC);
+          if (!listasu.isEmpty()) {
+            for (int i = 0; i < listasu.size(); i++) {
+                MateriaId MI = listasu.get(i);
+                listaBox.addItem(MI.getNameSub());
+
+            }
+        }
     }//GEN-LAST:event_formWindowOpened
 
     /**
@@ -130,5 +149,6 @@ public class VerMateriasProfe extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JComboBox<String> listaBox;
     // End of variables declaration//GEN-END:variables
 }
