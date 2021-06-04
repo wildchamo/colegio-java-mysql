@@ -291,6 +291,8 @@ public class Student {
         
         return s;
     }
+    
+    
     public LinkedList <vistaEstudianteCurso> buscarEstudianteCurso(String sql){
         LinkedList<vistaEstudianteCurso> listaEC= new LinkedList<>();
         ResultSet rs;

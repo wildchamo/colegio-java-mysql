@@ -7,6 +7,7 @@ package vista;
 
 import controlador.ControladorTeacher;
 import javax.swing.JOptionPane;
+import modelo.Teacher;
 
 /**
  *
@@ -118,22 +119,23 @@ Inicio ventanaU=new Inicio ();
     }//GEN-LAST:event_RegresarbtnActionPerformed
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
-String usuario = Usuario.getText();
+        String usuario = Usuario.getText();
         String password = Contrasenia.getText();
 
         ControladorTeacher cs = new ControladorTeacher();
-        boolean t = cs.validarUsuario(usuario, password);
+        Teacher t = cs.validarUsuario(usuario, password);
        
         
-        if (t) {
-
-            AsignarNota form = new AsignarNota();
+           if (t!=null) {
+            VerMaterias form = new VerMaterias();
+            form.setIds(t.getTeacherID());
             form.setVisible(true);
             this.dispose();
         } else {
             JOptionPane.showMessageDialog(null, "El usuario no existe");
 
-        };        // TODO add your handling code here:
+        };
+     // TODO add your handling code here:
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     /**
