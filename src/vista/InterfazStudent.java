@@ -79,6 +79,7 @@ public class InterfazStudent extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jornadaBox = new javax.swing.JComboBox<>();
         jLabel17 = new javax.swing.JLabel();
+        Regresarbtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -174,6 +175,13 @@ public class InterfazStudent extends javax.swing.JFrame {
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
+        Regresarbtn.setText("Regresar");
+        Regresarbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegresarbtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -241,7 +249,9 @@ public class InterfazStudent extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(176, 176, 176)
                 .addComponent(Ingresar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Regresarbtn)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -293,7 +303,9 @@ public class InterfazStudent extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addComponent(Ingresar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Ingresar)
+                    .addComponent(Regresarbtn))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -406,6 +418,12 @@ public class InterfazStudent extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cursosBoxActionPerformed
 
+    private void RegresarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegresarbtnActionPerformed
+OpcionesIngresar objAlfa = new OpcionesIngresar (); 
+       objAlfa.setVisible(true);
+       this.setVisible(false);        // TODO add your handling code here:
+    }//GEN-LAST:event_RegresarbtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -444,6 +462,7 @@ public class InterfazStudent extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> Genero;
     private javax.swing.JButton Ingresar;
+    private javax.swing.JButton Regresarbtn;
     private javax.swing.JTextField apellido1Box;
     private javax.swing.JTextField apellido2Box;
     private javax.swing.JTextField celularBox;

@@ -33,6 +33,7 @@ public class InterfazSubject extends javax.swing.JFrame {
         nombreAsigBox = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        Regresarbtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,6 +48,13 @@ public class InterfazSubject extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setText("Asignatura");
+
+        Regresarbtn.setText("Regresar");
+        Regresarbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegresarbtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -65,6 +73,10 @@ public class InterfazSubject extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(nombreAsigBox, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(101, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Regresarbtn)
+                .addGap(53, 53, 53))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -77,7 +89,9 @@ public class InterfazSubject extends javax.swing.JFrame {
                     .addComponent(nombreAsigBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(54, 54, 54)
                 .addComponent(jButton1)
-                .addContainerGap(126, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addComponent(Regresarbtn)
+                .addGap(36, 36, 36))
         );
 
         pack();
@@ -96,6 +110,12 @@ public class InterfazSubject extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No se realiza el insert");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void RegresarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegresarbtnActionPerformed
+OpcionesIngresar objAlfa = new OpcionesIngresar (); 
+       objAlfa.setVisible(true);
+       this.setVisible(false);        // TODO add your handling code here:
+    }//GEN-LAST:event_RegresarbtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -133,6 +153,7 @@ public class InterfazSubject extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Regresarbtn;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
