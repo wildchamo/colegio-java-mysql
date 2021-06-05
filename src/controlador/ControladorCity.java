@@ -31,6 +31,13 @@ public class ControladorCity {
 
         return lg;
     }
+    public boolean EliminarCiudad(int IDCiudad) {
+        boolean E = false;
+        String sql = "delete from cities where idCity= "+IDCiudad+ ";";
+        BaseDatos objbd = new BaseDatos();
+        E = objbd.ejecutarSQL(sql);
+        return E;
+    }
         public boolean actualizarCiudad(City objc, int id) {
         boolean t = false;
         String sql = "UPDATE cities SET `nameC`= ? WHERE idCity = " + id;

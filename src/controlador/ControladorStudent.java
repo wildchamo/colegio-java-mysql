@@ -56,5 +56,11 @@ public class ControladorStudent {
         ls = objc.MostrarNotas(sql);
         return ls;
     }
-
+public boolean EliminarStudent(int IDStudent) {
+        boolean E = false;
+        String sql = "delete from students where studentID= "+IDStudent+ ";";
+        BaseDatos objbd = new BaseDatos();
+        E = objbd.ejecutarSQL(sql);
+        return E;
+    }
 }

@@ -30,14 +30,12 @@ public class ControladorTeacher {
         ls = objc.consultarProfesores(sql);
         return ls;
     }
-    
-       public Teacher validarUsuario(String usuario,String contrasenia){
-        
-        String sql= "SELECT * FROM TEACHERS WHERE userT='"+ usuario +"' AND passwordT='"+ contrasenia+ "';";
-        Teacher objbd= new Teacher();
-        Teacher teacher =objbd.ejecutarSQLQ(sql);
-        return teacher;
-        
+    public boolean EliminarTeacher(int IDTeacher) {
+        boolean E = false;
+        String sql = "delete from teachers where teacherID= "+IDTeacher+ ";";
+        BaseDatos objbd = new BaseDatos();
+        E = objbd.ejecutarSQL(sql);
+        return E;
     }
 
 }
