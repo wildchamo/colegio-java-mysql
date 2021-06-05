@@ -22,6 +22,14 @@ public class ControladorSubject {
         t = objbd.ejecutarSQL(sql);
         return t;
     }
+    
+    public boolean EliminarSubject(int IDSubject) {
+        boolean E = false;
+        String sql = "delete from subjects where subjectID= "+IDSubject+ ";";
+        BaseDatos objbd = new BaseDatos();
+        E = objbd.ejecutarSQL(sql);
+        return E;
+    }
 
     public LinkedList<Subject> consultarAsignaturas() {
         LinkedList<Subject> ls = null;
