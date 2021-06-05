@@ -50,7 +50,7 @@ public class ControladorSubject {
     }
           public boolean EliminarSubject(int IDsub) {
         boolean E = false;
-        String sql = "delete from subjets where subjectID= "+IDsub+ ";";
+        String sql = "delete from subjects where subjectID= "+IDsub+ ";";
         BaseDatos objbd = new BaseDatos();
         E = objbd.ejecutarSQL(sql);
         return E;
