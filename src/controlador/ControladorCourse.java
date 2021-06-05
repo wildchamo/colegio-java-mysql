@@ -31,6 +31,14 @@ public class ControladorCourse {
 
         return lc;
     }
+    
+    public boolean actualizarCourse(Course objc, int id) {
+        boolean t = false;
+        String sql = "UPDATE courses SET `nameC`= ? WHERE idCourse = " + id;
+        t = objc.actualizarCourse(sql, objc);
+
+        return t;
+    }
 
     public LinkedList<Course> consultarCursoPorID(int cursoID) {
         LinkedList<Course> lc = null;
@@ -41,11 +49,6 @@ public class ControladorCourse {
         return lc;
     }
     
-        public LinkedList<Course> MostrarCursosSbc(int idProfe) {
-         LinkedList<Course> ls = null;
-        String sql = "call mostrarCursos("+ idProfe + ");";
-        Course objc = new Course();
-        ls = objc.consultarCursos(sql);
-        return ls;
-    }
+    
+
 }

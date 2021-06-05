@@ -22,22 +22,24 @@ public class ControladorTeacher {
         t = objbd.ejecutarSQL(sql);
         return t;
     }
+    public boolean actualizarProfesor(Teacher objc, int id) {
+        boolean t = false;
+        String sql = "UPDATE Teachers SET `name1T` = ?, `name2T` = ?, `surname1T` = ?, `surname2T`, `mobileT`, `adressT`, `stratumT`, `institutionalEmailT`, `businessPositionT`, `workDayT`, `userT`, `passwordT` = ? WHERE teacherID = " + id;
+        t = objc.actualizarProfesor(sql, objc);
 
-    public LinkedList<Teacher> consultarProfesores() {
+        return t;
+    }
+
+
+
+    public LinkedList<Teacher> consultarProfesores(String text) {
         LinkedList<Teacher> ls = null;
         String sql = "select * from teachers;";
         Teacher objc = new Teacher();
         ls = objc.consultarProfesores(sql);
         return ls;
     }
-    
-       public Teacher validarUsuario(String usuario,String contrasenia){
-        
-        String sql= "SELECT * FROM TEACHERS WHERE userT='"+ usuario +"' AND passwordT='"+ contrasenia+ "';";
-        Teacher objbd= new Teacher();
-        Teacher teacher =objbd.ejecutarSQLQ(sql);
-        return teacher;
-        
-    }
+
+  
 
 }
