@@ -108,11 +108,7 @@ public class ModificarProfesor extends javax.swing.JFrame {
 
         jLabel9.setText("Género");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel10.setText("Estrato");
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel11.setText("Correo institucional");
 
@@ -129,8 +125,6 @@ public class ModificarProfesor extends javax.swing.JFrame {
         jLabel14.setText("Usuario");
 
         jLabel15.setText("Contraseña");
-
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel16.setText("Ciudad");
 
@@ -311,6 +305,8 @@ public class ModificarProfesor extends javax.swing.JFrame {
         String passT = jTextField12.getText();
         int indexC = jComboBox3.getSelectedIndex();
 
+        
+        
         Teacher profesorM = new Teacher(nomt, nomt2, surname1t, surname2t, mobilet, addresst, insEmailt, busPosT, workDayT, userT, passT);
         ControladorTeacher ct = new ControladorTeacher();
         if (ct.actualizarProfesor(profesorM, this.idToModif)) {

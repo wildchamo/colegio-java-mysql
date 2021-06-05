@@ -103,4 +103,23 @@ public class Subject {
         }
         return listaMI;
     }
+    
+         public boolean actualizarAsignatura(String sql, Subject objc) {
+
+        boolean t = false;
+        BaseDatos objbd = new BaseDatos();
+        PreparedStatement pst = null;
+        if(objbd.crearConexion()){
+            try{
+                pst = objbd.getConexion().prepareStatement(sql);
+                pst.setString(1, objc.getNameSub());
+                pst.executeUpdate();
+                t= true;
+
+            }catch (SQLException ex){
+                Logger.getLogger(Subject.class.getName()).log(Level.SEVERE,null, ex);
+            }
+        }
+        return t;
+}
 }
