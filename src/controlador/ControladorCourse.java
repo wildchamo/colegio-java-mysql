@@ -31,7 +31,13 @@ public class ControladorCourse {
 
         return lc;
     }
-
+public boolean EliminarCourse(int IDCourse) {
+        boolean E = false;
+        String sql = "delete from courses where courseID= "+IDCourse+ ";";
+        BaseDatos objbd = new BaseDatos();
+        E = objbd.ejecutarSQL(sql);
+        return E;
+    }
     public LinkedList<Course> consultarCursoPorID(int cursoID) {
         LinkedList<Course> lc = null;
         String sql = "select * from courses WHERE courseID=" + cursoID + ";";
@@ -40,12 +46,5 @@ public class ControladorCourse {
 
         return lc;
     }
-    
-        public LinkedList<Course> MostrarCursosSbc(int idProfe) {
-         LinkedList<Course> ls = null;
-        String sql = "call mostrarCursos("+ idProfe + ");";
-        Course objc = new Course();
-        ls = objc.consultarCursos(sql);
-        return ls;
-    }
+
 }
