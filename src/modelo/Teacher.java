@@ -38,6 +38,21 @@ public class Teacher {
     public Teacher() {
     }
 
+    public Teacher(String name1T, String name2T, String suname1T, String suname2T, String mobileT, String addressT, String institutionalEmailT, String businessPositionT, String workDay, String userT, String passwordT) {
+        this.name1T = name1T;
+        this.name2T = name2T;
+        this.suname1T = suname1T;
+        this.suname2T = suname2T;
+        this.mobileT = mobileT;
+        this.addressT = addressT;
+        this.institutionalEmailT = institutionalEmailT;
+        this.businessPositionT = businessPositionT;
+        this.workDay = workDay;
+        this.userT = userT;
+        this.passwordT = passwordT;
+    }
+    
+
     public Teacher(String name1T, String name2T, String suname1T, String suname2T, String mobileT, String addressT, String stratumT, String institutionalEmailT, String businessPositionT, String workDay, String userT, String passwordT, int idCityfk, int idGenderfk) {
         this.name1T = name1T;
         this.name2T = name2T;
@@ -54,6 +69,22 @@ public class Teacher {
         this.idCityfk = idCityfk;
         this.idGenderfk = idGenderfk;
     }
+
+    public Teacher(String name1T, String name2T, String suname1T, String suname2T, String mobileT, String addressT, String stratumT, String institutionalEmailT, String businessPositionT, String workDay, String userT, String passwordT) {
+        this.name1T = name1T;
+        this.name2T = name2T;
+        this.suname1T = suname1T;
+        this.suname2T = suname2T;
+        this.mobileT = mobileT;
+        this.addressT = addressT;
+        this.stratumT = stratumT;
+        this.institutionalEmailT = institutionalEmailT;
+        this.businessPositionT = businessPositionT;
+        this.workDay = workDay;
+        this.userT = userT;
+        this.passwordT = passwordT;
+    }
+    
 
     public Teacher(int teacherID, String name1T, String name2T, String suname1T, String suname2T, String mobileT, String addressT, String stratumT, String institutionalEmailT, String businessPositionT, String workDay, String userT, String passwordT, int idCityfk, int idGenderfk) {
         this.teacherID = teacherID;
@@ -79,6 +110,7 @@ public class Teacher {
         this.passwordT = passwordT;
     }
 
+ 
     
     public int getTeacherID() {
         return teacherID;
@@ -257,6 +289,39 @@ public class Teacher {
 
         return lt;
     }
+    
+     public boolean actualizarProfesor(String sql, Teacher objp) {
+
+        boolean t = false;
+        BaseDatos objbd = new BaseDatos();
+        PreparedStatement pst = null;
+        if (objbd.crearConexion()) {
+            try {
+                pst = objbd.getConexion().prepareStatement(sql);
+                pst.setString(1, objp.getName1T());
+                pst.setString(2, objp.getName2T());
+                pst.setString(3, objp.getSuname1T());
+                pst.setString(5, objp.getSuname2T());
+                pst.setString(6, objp.getMobileT());
+                pst.setString(7, objp.getAddressT());
+                pst.setString(8, objp.getStratumT());
+                pst.setString(9, objp.getInstitutionalEmailT());
+                pst.setString(10, objp.getBusinessPositionT());
+                pst.setString(11, objp.getWorkDay());
+                pst.setString(12, objp.getUserT());
+                pst.setString(13, objp.getPasswordT());
+                pst.executeUpdate();
+                t = true;
+
+            } catch (SQLException ex) {
+                Logger.getLogger(Teacher.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+        return t;
+
+    }
+    
     
     
         public LinkedList <ProfesorCursoAsignatura> buscarProfeCursoAsig(String sql){

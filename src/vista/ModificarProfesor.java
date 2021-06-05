@@ -5,11 +5,24 @@
  */
 package vista;
 
+import controlador.ControladorCity;
+import controlador.ControladorGender;
+import controlador.ControladorTeacher;
+import java.util.LinkedList;
+import javax.swing.JOptionPane;
+import modelo.City;
+import modelo.Teacher;
+import modelo.Gender;
+
 /**
  *
  * @author usuario
  */
 public class ModificarProfesor extends javax.swing.JFrame {
+
+    private int idToModif;
+    LinkedList<Gender> listag;
+    LinkedList<City> listac;
 
     /**
      * Creates new form ModificarProfesor
@@ -63,11 +76,21 @@ public class ModificarProfesor extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Modificar Profesor");
 
         jButton1.setText("Buscar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("ID profesor ");
 
@@ -85,11 +108,7 @@ public class ModificarProfesor extends javax.swing.JFrame {
 
         jLabel9.setText("Género");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel10.setText("Estrato");
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel11.setText("Correo institucional");
 
@@ -107,11 +126,14 @@ public class ModificarProfesor extends javax.swing.JFrame {
 
         jLabel15.setText("Contraseña");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel16.setText("Ciudad");
 
         jButton2.setText("Modificar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Regresar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -262,11 +284,91 @@ public class ModificarProfesor extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField11ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-OpcionesModificar objAlfa = new OpcionesModificar (); 
-       objAlfa.setVisible(true);
-       this.setVisible(false);         // TODO add your handling code here:
+        OpcionesModificar objAlfa = new OpcionesModificar();
+        objAlfa.setVisible(true);
+        this.setVisible(false);         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String nomt = jTextField2.getText();
+        String nomt2 = jTextField3.getText();
+        String surname1t = jTextField4.getText();
+        String surname2t = jTextField5.getText();
+        String mobilet = jTextField6.getText();
+        String addresst = jTextField7.getText();
+        int indexG = jComboBox1.getSelectedIndex();
+        String estrato = jComboBox2.getSelectedItem().toString();
+        String insEmailt = jTextField8.getText();
+        String busPosT = jTextField9.getText();
+        String workDayT = jTextField10.getText();
+        String userT = jTextField11.getText();
+        String passT = jTextField12.getText();
+        int indexC = jComboBox3.getSelectedIndex();
+
+        
+        
+        Teacher profesorM = new Teacher(nomt, nomt2, surname1t, surname2t, mobilet, addresst, insEmailt, busPosT, workDayT, userT, passT);
+        ControladorTeacher ct = new ControladorTeacher();
+        if (ct.actualizarProfesor(profesorM, this.idToModif)) {
+            JOptionPane.showMessageDialog(null, "Profesor modificado con exito");
+
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        ControladorTeacher ct = new ControladorTeacher();
+        LinkedList<Teacher> result = ct.consultarProfesores(jTextField1.getText());
+
+        if (!result.isEmpty()) {
+            Teacher res = result.get(0);
+            jTextField2.setText(res.getName1T());
+            jTextField3.setText(res.getName2T());
+            jTextField4.setText(res.getSuname1T());
+            jTextField5.setText(res.getSuname2T());
+            jTextField6.setText(res.getMobileT());
+            jTextField7.setText(res.getAddressT());
+            //jComboBox1.getSelectedIndex(res.getIdGenderfk);
+            jComboBox2.getSelectedItem().toString();
+            jTextField8.setText(res.getInstitutionalEmailT());
+            jTextField9.setText(res.getBusinessPositionT());
+            jTextField10.setText(res.getWorkDay());
+            jTextField11.setText(res.getUserT());
+            jTextField12.setText(res.getPasswordT());
+
+            this.idToModif = res.getTeacherID();
+        } else {
+            JOptionPane.showMessageDialog(null, "Profesor no encontrado");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        ControladorGender objcg = new ControladorGender();
+
+        listag = objcg.consultarGeneros();
+        if (!listag.isEmpty()) {
+            for (int i = 0; i < listag.size(); i++) {
+                Gender gender = listag.get(i);
+                jComboBox1.addItem(gender.getNameG());
+
+            }
+        }
+
+        ControladorCity objcc = new ControladorCity();
+
+        listac = objcc.consultarCiudades();
+        if (!listac.isEmpty()) {
+            for (int i = 0; i < listac.size(); i++) {
+                City city = listac.get(i);
+                jComboBox3.addItem(city.getNameC());
+
+            }
+        }
+    }//GEN-LAST:event_formWindowOpened
+
+    //   jTextArea1.setText(res.getDescripcionPelicula());
+    //   BufferedImage imgIO = decodeToImage(res.getImagen());
+    //   Image imgIOscaled = imgIO.getScaledInstance(jLabel6.getWidth(), jLabel6.getHeight(), Image.SCALE_SMOOTH);
+    //   jLabel6.setIcon(new ImageIcon(imgIOscaled));
     /**
      * @param args the command line arguments
      */

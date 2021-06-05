@@ -5,11 +5,18 @@
  */
 package vista;
 
+import controlador.ControladorSubject;
+import java.util.LinkedList;
+import javax.swing.JOptionPane;
+import modelo.Subject;
+
 /**
  *
  * @author usuario
  */
 public class ModificarSubject extends javax.swing.JFrame {
+
+    private int idToModif;
 
     /**
      * Creates new form ModificarSubject
@@ -52,8 +59,18 @@ public class ModificarSubject extends javax.swing.JFrame {
         jLabel3.setText("Nuevo nombre");
 
         jButton1.setText("Buscar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Modificar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Regresar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -114,7 +131,7 @@ public class ModificarSubject extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -122,6 +139,32 @@ OpcionesModificar objAlfa = new OpcionesModificar ();
        objAlfa.setVisible(true);
        this.setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        ControladorSubject objcc = new ControladorSubject();
+        LinkedList<Subject> result = objcc.consultarAsignaturas();
+
+        if (!result.isEmpty()) {
+            Subject res = result.get(0);
+            jTextField1.setText(res.getNameSub());
+
+            this.idToModif = res.getSubjectID();
+                JOptionPane.showMessageDialog(null, "Genero encontrado, ahora puede realizar la modificación");
+        } else {
+            JOptionPane.showMessageDialog(null, "Genero no encontrado");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String nomg = jTextField2.getText();
+        Subject subjectN = new Subject(nomg);
+        ControladorSubject cc = new ControladorSubject();
+        if (cc.actualizarAsignatura(subjectN, this.idToModif)) {
+            JOptionPane.showMessageDialog(null, "Genero Modificado");
+        }else{
+            JOptionPane.showMessageDialog(null, " no se pudo modificar el genero");
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

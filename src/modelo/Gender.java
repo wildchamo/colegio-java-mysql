@@ -5,6 +5,7 @@
  */
 package modelo;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -79,6 +80,25 @@ public class Gender {
 
         return lg;
     }
+       
+    public boolean actualizarGenero(String sql, Gender objc) {
+
+        boolean t = false;
+        BaseDatos objbd = new BaseDatos();
+        PreparedStatement pst = null;
+        if(objbd.crearConexion()){
+            try{
+                pst = objbd.getConexion().prepareStatement(sql);
+                pst.setString(1, objc.getNameG());
+                pst.executeUpdate();
+                t= true;
+
+            }catch (SQLException ex){
+                Logger.getLogger(Gender.class.getName()).log(Level.SEVERE,null, ex);
+            }
+        }
+        return t;
+}
 }
 
 

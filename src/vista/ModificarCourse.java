@@ -5,11 +5,18 @@
  */
 package vista;
 
+import controlador.ControladorCourse;
+import java.util.LinkedList;
+import javax.swing.JOptionPane;
+import modelo.Course;
+
 /**
  *
  * @author usuario
  */
 public class ModificarCourse extends javax.swing.JFrame {
+
+    private int idToModif;
 
     /**
      * Creates new form ModificarCourse
@@ -46,8 +53,18 @@ public class ModificarCourse extends javax.swing.JFrame {
         jLabel3.setText("Nuevo nombre");
 
         jButton1.setText("Buscar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Modificar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Regresar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -111,6 +128,33 @@ OpcionesModificar objAlfa = new OpcionesModificar ();
        objAlfa.setVisible(true);
        this.setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        ControladorCourse objcc = new ControladorCourse();
+        LinkedList<Course> result = objcc.consultarCursos();
+
+        if (!result.isEmpty()) {
+            Course res = result.get(0);
+            jTextField1.setText(res.getNameC());
+
+            this.idToModif = res.getCourseID();
+                JOptionPane.showMessageDialog(null, "Curso encontrado, ahora puede realizar la modificación");
+        } else {
+            JOptionPane.showMessageDialog(null, "Curso no encontrado");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String nomc = jTextField2.getText();
+        Course courseN = new Course(nomc);
+        ControladorCourse cc = new ControladorCourse();
+        if (cc.actualizarCourse(courseN, this.idToModif)) {
+            JOptionPane.showMessageDialog(null, "Ciudad Modificada");
+        }else{
+            JOptionPane.showMessageDialog(null, " no se pudo modificar la ciudad");
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

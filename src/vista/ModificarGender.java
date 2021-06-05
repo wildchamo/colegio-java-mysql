@@ -5,11 +5,18 @@
  */
 package vista;
 
+import controlador.ControladorGender;
+import java.util.LinkedList;
+import javax.swing.JOptionPane;
+import modelo.Gender;
+
 /**
  *
  * @author usuario
  */
 public class ModificarGender extends javax.swing.JFrame {
+
+    private int idToModif;
 
     /**
      * Creates new form ModificarGender
@@ -46,8 +53,18 @@ public class ModificarGender extends javax.swing.JFrame {
         jLabel3.setText("Nuevo nombre");
 
         jButton1.setText("Buscar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Modificar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Regresar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -116,6 +133,32 @@ OpcionesModificar objAlfa = new OpcionesModificar ();
        objAlfa.setVisible(true);
        this.setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String nomg = jTextField2.getText();
+        Gender genderN = new Gender(nomg);
+        ControladorGender cc = new ControladorGender();
+        if (cc.actualizarGenero(genderN, this.idToModif)) {
+            JOptionPane.showMessageDialog(null, "Genero Modificado");
+        }else{
+            JOptionPane.showMessageDialog(null, " no se pudo modificar el genero");
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        ControladorGender objcc = new ControladorGender();
+        LinkedList<Gender> result = objcc.consultarGeneros();
+
+        if (!result.isEmpty()) {
+            Gender res = result.get(0);
+            jTextField1.setText(res.getNameG());
+
+            this.idToModif = res.getIdGender();
+                JOptionPane.showMessageDialog(null, "Genero encontrado, ahora puede realizar la modificación");
+        } else {
+            JOptionPane.showMessageDialog(null, "Genero no encontrado");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
