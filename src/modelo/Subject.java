@@ -30,6 +30,7 @@ public class Subject {
         this.subjectID = subjectID;
         this.nameSub = nameSub;
     }
+    
 
     public Subject() {
 //To change body of generated methods, choose Tools | Templates.
@@ -62,13 +63,14 @@ public class Subject {
         ResultSet rs;
         int ids;
         String noms;
+     
 
         if (objbd.crearConexion()) {
             try {
                 Statement st = objbd.getConexion().createStatement();
                 rs = st.executeQuery(sql);
                 while (rs.next()) {
-                    ids = rs.getInt("subjectID");
+                    ids= rs.getInt("subjectID");
                     noms = rs.getString("nameSub");
                     lcs.add(new Subject(ids, noms));
                 }
@@ -80,27 +82,23 @@ public class Subject {
 
         return lcs;
     }
+    
+     public boolean actualizarAsignatura(String sql, Subject objc) {
 
-    public LinkedList<MateriaId> MostrarMateriaID(String sql) {
-        LinkedList<MateriaId> listaMI = new LinkedList<>();
-        ResultSet rs;
-        int id;
-        String nameS;
-
+        boolean t = false;
         BaseDatos objbd = new BaseDatos();
+        PreparedStatement pst = null;
         if(objbd.crearConexion()){
             try{
-                PreparedStatement st=objbd.getConexion().prepareStatement(sql);
-                rs= st.executeQuery();
-                while(rs.next()){
-                    id= rs.getInt("idsubject_by_courseID");
-                    nameS= rs.getString("nameSub");
-                    listaMI.add(new MateriaId(id,nameS));
-                }
-            }catch(SQLException ex){
-                Logger.getLogger(Student.class.getName()).log(Level.SEVERE,null,ex);
+                pst = objbd.getConexion().prepareStatement(sql);
+                pst.setString(1, objc.getNameSub());
+                pst.executeUpdate();
+                t= true;
+
+            }catch (SQLException ex){
+                Logger.getLogger(Subject.class.getName()).log(Level.SEVERE,null, ex);
             }
         }
-        return listaMI;
-    }
+        return t;
+}
 }

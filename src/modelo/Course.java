@@ -54,6 +54,10 @@ public class Course {
         this.imgCourse = imgCourse;
     }
 
+    public Course(String nomc) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int getCourseID() {
         return courseID;
     }
@@ -145,5 +149,24 @@ public class Course {
         return lcu;
 
     }
+    public boolean actualizarCourse(String sql, Course objc) {
+
+        boolean t = false;
+        BaseDatos objbd = new BaseDatos();
+        PreparedStatement pst = null;
+        if(objbd.crearConexion()){
+            try{
+                pst = objbd.getConexion().prepareStatement(sql);
+                pst.setString(1, objc.getNameC());
+                pst.executeUpdate();
+                t= true;
+
+            }catch (SQLException ex){
+                Logger.getLogger(Course.class.getName()).log(Level.SEVERE,null, ex);
+            }
+        }
+        return t;
+}
 
 }
+

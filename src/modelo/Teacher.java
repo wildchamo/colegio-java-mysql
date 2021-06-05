@@ -73,13 +73,10 @@ public class Teacher {
         this.idGenderfk = idGenderfk;
     }
 
-    public Teacher(int teacherID, String userT, String passwordT) {
-        this.teacherID = teacherID;
-        this.userT = userT;
-        this.passwordT = passwordT;
+    public Teacher(String nomt, String nomt2, String surname1t, String surname2t, String mobilet, String addresst, String insEmailt, String busPosT, String workDayT, String userT, String passT) {
+        
     }
 
-    
     public int getTeacherID() {
         return teacherID;
     }
@@ -210,7 +207,7 @@ public class Teacher {
         LinkedList<Teacher> lt = new LinkedList<>();
         ResultSet rs;
 
-         int idt;
+        int idt;
         String nomt;
         String nomt2;
         String surnamet;
@@ -225,8 +222,8 @@ public class Teacher {
         String passT;
         int IdGender;
         int IdCity;
-        
-                if (objbd.crearConexion()) {
+
+        if (objbd.crearConexion()) {
             try {
                 Statement st = objbd.getConexion().createStatement();
                 rs = st.executeQuery(sql);
@@ -238,7 +235,7 @@ public class Teacher {
                     surname2t = rs.getString("surname2T");
                     mobilet = rs.getString("mobileT");
                     addresst = rs.getString("adressT");
-                    stratumt=rs.getString("stratumT");
+                    stratumt = rs.getString("stratumT");
                     insEmailt = rs.getString("institutionalEmailT");
                     busPosT = rs.getString("businessPositionT");
                     workDayT = rs.getString("workDayT");
@@ -247,7 +244,7 @@ public class Teacher {
                     IdGender = rs.getInt("idGenderfk");
                     IdCity = rs.getInt("idcitiesfk");
 
-                    lt.add(new Teacher(idt, nomt, nomt2, surnamet, surname2t,mobilet,addresst,stratumt,insEmailt,busPosT,workDayT,userT,passT,IdGender,IdCity));
+                    lt.add(new Teacher(idt, nomt, nomt2, surnamet, surname2t, mobilet, addresst, stratumt, insEmailt, busPosT, workDayT, userT, passT, IdGender, IdCity));
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(Gender.class.getName()).log(Level.SEVERE, null, ex);
@@ -257,62 +254,63 @@ public class Teacher {
 
         return lt;
     }
-    
-    
-        public LinkedList <ProfesorCursoAsignatura> buscarProfeCursoAsig(String sql){
-        LinkedList<ProfesorCursoAsignatura> listaPCA= new LinkedList<>();
+
+    public boolean actualizarProfesor(String sql, Teacher objp) {
+
+        boolean t = false;
+        BaseDatos objbd = new BaseDatos();
+        PreparedStatement pst = null;
+        if (objbd.crearConexion()) {
+            try {
+                pst = objbd.getConexion().prepareStatement(sql);
+                pst.setString(1, objp.getName1T());
+                pst.setString(2, objp.getName2T());
+                pst.setString(3, objp.getSuname1T());
+                pst.setString(5, objp.getSuname2T());
+                pst.setString(6, objp.getMobileT());
+                pst.setString(7, objp.getAddressT());
+                pst.setString(8, objp.getStratumT());
+                pst.setString(9, objp.getInstitutionalEmailT());
+                pst.setString(10, objp.getBusinessPositionT());
+                pst.setString(11, objp.getWorkDay());
+                pst.setString(12, objp.getUserT());
+                pst.setString(13, objp.getPasswordT());
+                pst.executeUpdate();
+                t = true;
+
+            } catch (SQLException ex) {
+                Logger.getLogger(Teacher.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+        return t;
+
+    }
+
+    public LinkedList<ProfesorCursoAsignatura> buscarProfeCursoAsig(String sql) {
+        LinkedList<ProfesorCursoAsignatura> listaPCA = new LinkedList<>();
         ResultSet rs;
         int id;
         String nombreProfesor;
         String nombreCurso;
         String nombreAsignatura;
-        BaseDatos objbd= new BaseDatos();
-        if(objbd.crearConexion()){
-            try{
-                PreparedStatement st=objbd.getConexion().prepareStatement(sql);
-                rs= st.executeQuery();
-                while(rs.next()){
-                    id= rs.getInt("ID");
-                    nombreProfesor= rs.getString("NombreProfesor");
-                    nombreCurso= rs.getString("NombreCurso");
-                    nombreAsignatura= rs.getString("NombreAsignatura");
-                    listaPCA.add(new ProfesorCursoAsignatura(id,nombreProfesor,nombreCurso,nombreAsignatura));
+        BaseDatos objbd = new BaseDatos();
+        if (objbd.crearConexion()) {
+            try {
+                PreparedStatement st = objbd.getConexion().prepareStatement(sql);
+                rs = st.executeQuery();
+                while (rs.next()) {
+                    id = rs.getInt("ID");
+                    nombreProfesor = rs.getString("NombreProfesor");
+                    nombreCurso = rs.getString("NombreCurso");
+                    nombreAsignatura = rs.getString("NombreAsignatura");
+                    listaPCA.add(new ProfesorCursoAsignatura(id, nombreProfesor, nombreCurso, nombreAsignatura));
                 }
-            }catch(SQLException ex){
-                Logger.getLogger(Student.class.getName()).log(Level.SEVERE,null,ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         return listaPCA;
-    }
-        
-        
-        public Teacher ejecutarSQLQ(String sql) {
-        Teacher t=null;
-        int idt;
-        String pass;
-        String namu;
-        BaseDatos bd=new BaseDatos();
-        Statement st;
-        if(bd.crearConexion()){
-            try {
-                st=bd.getConexion().createStatement();
-                ResultSet rs=st.executeQuery(sql);
-                while (rs.next()) {
-                    idt = rs.getInt("teacherID");
-                    namu=rs.getString("userT");
-                    pass=rs.getString("passwordT");
-                    
-                    t=new Teacher(idt, namu, pass);
-                }
-              
-                        
-            } catch (SQLException ex) {
-                Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
-        }
-        
-        return t;
     }
 
 }
