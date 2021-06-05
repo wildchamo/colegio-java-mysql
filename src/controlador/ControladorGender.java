@@ -19,6 +19,14 @@ public class ControladorGender {
         t=objbd.ejecutarSQL(sql);
         return t;              
     }
+        public boolean actualizarGenero(Gender objc, int id) {
+        boolean t = false;
+        String sql = "UPDATE genders SET `nameG`= ? WHERE idGender = " + id;
+        t = objc.actualizarGenero(sql, objc);
+
+        return t;
+    }
+        
       public LinkedList<Gender> consultarGeneros() {
         LinkedList<Gender> lg=null;
         String sql="select * from genders;";
