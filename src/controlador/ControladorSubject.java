@@ -48,5 +48,12 @@ public class ControladorSubject {
 
         return t;
     }
+          public boolean EliminarSubject(int IDsub) {
+        boolean E = false;
+        String sql = "delete from subjets where subjectID= "+IDsub+ ";";
+        BaseDatos objbd = new BaseDatos();
+        E = objbd.ejecutarSQL(sql);
+        return E;
+    }
 
 }

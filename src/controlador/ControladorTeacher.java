@@ -55,5 +55,11 @@ public class ControladorTeacher {
 
         return t;
     }
-
+    public boolean EliminarTeacher(int IDTeacher) {
+        boolean E = false;
+        String sql = "delete from teachers where teacherID= "+IDTeacher+ ";";
+        BaseDatos objbd = new BaseDatos();
+        E = objbd.ejecutarSQL(sql);
+        return E;
+    }
 }

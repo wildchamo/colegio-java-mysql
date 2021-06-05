@@ -47,4 +47,11 @@ public class ControladorCity {
         lc=objc.consultarCiudades(sql);
         return lc;
     }
+            public boolean EliminarCiudad(int IDCiudad) {
+        boolean E = false;
+        String sql = "delete from cities where idCity= "+IDCiudad+ ";";
+        BaseDatos objbd = new BaseDatos();
+        E = objbd.ejecutarSQL(sql);
+        return E;
+    }
 }

@@ -55,4 +55,11 @@ public class ControladorCourse {
 
         return t;
     }
+         public boolean EliminarCourse(int IDCourse) {
+        boolean E = false;
+        String sql = "delete from courses where courseID= "+IDCourse+ ";";
+        BaseDatos objbd = new BaseDatos();
+        E = objbd.ejecutarSQL(sql);
+        return E;
+    }
 }

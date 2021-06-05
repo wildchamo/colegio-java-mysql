@@ -34,4 +34,11 @@ public class ControladorGender {
 
         return t;
     }
+                public boolean EliminarGender(int IDGender) {
+        boolean E = false;
+        String sql = "delete from genders where idGender= "+IDGender+ ";";
+        BaseDatos objbd = new BaseDatos();
+        E = objbd.ejecutarSQL(sql);
+        return E;
+                }
 }
