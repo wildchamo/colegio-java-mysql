@@ -5,6 +5,7 @@
  */
 package modelo;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -29,7 +30,6 @@ public class Subject {
         this.subjectID = subjectID;
         this.nameSub = nameSub;
     }
-    
 
     public Subject() {
 //To change body of generated methods, choose Tools | Templates.
@@ -62,14 +62,13 @@ public class Subject {
         ResultSet rs;
         int ids;
         String noms;
-     
 
         if (objbd.crearConexion()) {
             try {
                 Statement st = objbd.getConexion().createStatement();
                 rs = st.executeQuery(sql);
                 while (rs.next()) {
-                    ids= rs.getInt("subjectID");
+                    ids = rs.getInt("subjectID");
                     noms = rs.getString("nameSub");
                     lcs.add(new Subject(ids, noms));
                 }
@@ -80,5 +79,28 @@ public class Subject {
         }
 
         return lcs;
+    }
+
+    public LinkedList<MateriaId> MostrarMateriaID(String sql) {
+        LinkedList<MateriaId> listaMI = new LinkedList<>();
+        ResultSet rs;
+        int id;
+        String nameS;
+
+        BaseDatos objbd = new BaseDatos();
+        if(objbd.crearConexion()){
+            try{
+                PreparedStatement st=objbd.getConexion().prepareStatement(sql);
+                rs= st.executeQuery();
+                while(rs.next()){
+                    id= rs.getInt("idsubject_by_courseID");
+                    nameS= rs.getString("nameSub");
+                    listaMI.add(new MateriaId(id,nameS));
+                }
+            }catch(SQLException ex){
+                Logger.getLogger(Student.class.getName()).log(Level.SEVERE,null,ex);
+            }
+        }
+        return listaMI;
     }
 }

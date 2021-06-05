@@ -40,5 +40,12 @@ public class ControladorCourse {
 
         return lc;
     }
-
+    
+        public LinkedList<Course> MostrarCursosSbc(int idProfe) {
+         LinkedList<Course> ls = null;
+        String sql = "call mostrarCursos("+ idProfe + ");";
+        Course objc = new Course();
+        ls = objc.consultarCursos(sql);
+        return ls;
+    }
 }

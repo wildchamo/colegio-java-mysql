@@ -13,8 +13,8 @@ import modelo.BaseDatos;
 public class ControladorScore {
        public boolean insertScore(Score objs) {
         boolean t = false;
-        String sql = "{call insertScore(" + objs.getScore1()+"','"+objs.getScore2()+ "','" + objs.getScore3() + "','"
-                + objs.getScore4() +"','"+objs.getIdsubject_by_courseIDfk()+"','"+objs.getStudentIDfk()+")}";
+        String sql = "{call insertScore(" + objs.getScore1()+","+objs.getScore2()+ "," + objs.getScore3() + ","
+                + objs.getScore4() +","+objs.getIdsubject_by_courseIDfk()+","+objs.getStudentIDfk()+")}";
         BaseDatos objbd = new BaseDatos();
         t = objbd.ejecutarSQL(sql);
         return t;

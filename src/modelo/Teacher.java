@@ -73,6 +73,13 @@ public class Teacher {
         this.idGenderfk = idGenderfk;
     }
 
+    public Teacher(int teacherID, String userT, String passwordT) {
+        this.teacherID = teacherID;
+        this.userT = userT;
+        this.passwordT = passwordT;
+    }
+
+    
     public int getTeacherID() {
         return teacherID;
     }
@@ -276,6 +283,36 @@ public class Teacher {
             }
         }
         return listaPCA;
+    }
+        
+        
+        public Teacher ejecutarSQLQ(String sql) {
+        Teacher t=null;
+        int idt;
+        String pass;
+        String namu;
+        BaseDatos bd=new BaseDatos();
+        Statement st;
+        if(bd.crearConexion()){
+            try {
+                st=bd.getConexion().createStatement();
+                ResultSet rs=st.executeQuery(sql);
+                while (rs.next()) {
+                    idt = rs.getInt("teacherID");
+                    namu=rs.getString("userT");
+                    pass=rs.getString("passwordT");
+                    
+                    t=new Teacher(idt, namu, pass);
+                }
+              
+                        
+            } catch (SQLException ex) {
+                Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+        
+        return t;
     }
 
 }

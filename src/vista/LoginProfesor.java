@@ -7,6 +7,7 @@ package vista;
 
 import controlador.ControladorTeacher;
 import javax.swing.JOptionPane;
+import modelo.Teacher;
 
 /**
  *
@@ -34,9 +35,9 @@ public class LoginProfesor extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         Usuario = new javax.swing.JTextField();
-        Contrasenia = new javax.swing.JTextField();
         btnIngresar = new javax.swing.JButton();
         Regresarbtn = new javax.swing.JButton();
+        Contrasenia = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,19 +73,19 @@ public class LoginProfesor extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(152, 152, 152)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(70, 70, 70)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel2))
                         .addGap(39, 39, 39)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                            .addComponent(Contrasenia)))
+                            .addComponent(Contrasenia)
+                            .addComponent(Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(152, 152, 152)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(142, 142, 142)
+                        .addGap(140, 140, 140)
                         .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(110, Short.MAX_VALUE))
         );
@@ -99,11 +100,11 @@ public class LoginProfesor extends javax.swing.JFrame {
                     .addComponent(Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Contrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                    .addComponent(jLabel3)
+                    .addComponent(Contrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addComponent(Regresarbtn)
                 .addGap(25, 25, 25))
         );
@@ -118,22 +119,23 @@ Inicio ventanaU=new Inicio ();
     }//GEN-LAST:event_RegresarbtnActionPerformed
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
-String usuario = Usuario.getText();
+        String usuario = Usuario.getText();
         String password = Contrasenia.getText();
 
         ControladorTeacher cs = new ControladorTeacher();
-        boolean t = cs.validarUsuario(usuario, password);
+        Teacher t = cs.validarUsuario(usuario, password);
        
         
-        if (t) {
-
-            AsignarNota form = new AsignarNota();
+           if (t!=null) {
+            VerCursos form = new VerCursos();
+            form.setIdT(t.getTeacherID());
             form.setVisible(true);
             this.dispose();
         } else {
             JOptionPane.showMessageDialog(null, "El usuario no existe");
 
-        };        // TODO add your handling code here:
+        };
+     // TODO add your handling code here:
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     /**
@@ -172,7 +174,7 @@ String usuario = Usuario.getText();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Contrasenia;
+    private javax.swing.JPasswordField Contrasenia;
     private javax.swing.JButton Regresarbtn;
     private javax.swing.JTextField Usuario;
     private javax.swing.JButton btnIngresar;
