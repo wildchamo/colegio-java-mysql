@@ -40,5 +40,13 @@ public class ControladorSubject {
         ls = objc.MostrarMateriaID(sql);
         return ls;
     }
+    
+      public boolean actualizarAsignatura(Subject objc, int id) {
+        boolean t = false;
+        String sql = "UPDATE subjects SET `nameSub`= ? WHERE subjectID = " + id;
+        t = objc.actualizarAsignatura(sql, objc);
+
+        return t;
+    }
 
 }

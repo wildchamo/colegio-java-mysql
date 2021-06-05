@@ -35,6 +35,10 @@ public class Course {
         this.nameC = nameC;
     }
 
+    public Course(String nameC) {
+        this.nameC = nameC;
+    }
+
     public Course(String nameC, String classroom, String imgCourse) {
         this.nameC = nameC;
         this.classroom = classroom;

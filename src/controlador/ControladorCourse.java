@@ -48,4 +48,11 @@ public class ControladorCourse {
         ls = objc.consultarCursos(sql);
         return ls;
     }
+         public boolean actualizarCourse(Course objc, int id) {
+        boolean t = false;
+        String sql = "UPDATE courses SET `nameC`= ? WHERE idCourse = " + id;
+        t = objc.actualizarCourse(sql, objc);
+
+        return t;
+    }
 }
