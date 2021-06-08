@@ -5,6 +5,7 @@
  */
 package vista;
 
+import controlador.ControladorStudent;
 import java.net.UnknownHostException;
 import java.util.LinkedList;
 import java.util.logging.Level;
@@ -121,10 +122,8 @@ public class InterfaceVistaEsudianteCurso extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
 
-        Student objs = new Student();
-        String sql = "SELECT * FROM escuela.consultarestudiantescursos;";
-        LinkedList<vistaEstudianteCurso> vec = objs.buscarEstudianteCurso(sql);
-
+        ControladorStudent CS= new ControladorStudent();
+         LinkedList<vistaEstudianteCurso> vec = CS.consultarVEC();
             for (int i = 0; i < vec.size(); i++) {
                 vistaEstudianteCurso get = vec.get(i);
                 System.out.println("Datos de la vista" + get.toString() + "\n");

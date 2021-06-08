@@ -7,6 +7,7 @@ package controlador;
 
 import java.util.LinkedList;
 import modelo.BaseDatos;
+import modelo.ProfesorCursoAsignatura;
 import modelo.Teacher;
 
 /**
@@ -31,12 +32,27 @@ public class ControladorTeacher {
         return ls;
     }
     
+       public LinkedList<ProfesorCursoAsignatura> consultarPCA() {
+        LinkedList<ProfesorCursoAsignatura> ls = null;
+        String sql = "SELECT * FROM escuela.profesorcursoasignatura;";
+        Teacher objc = new Teacher();
+        ls = objc.buscarProfeCursoAsig(sql);
+        return ls;
+    }
+    
     
     public LinkedList<Teacher> consultarProfesores(String text) {
         LinkedList<Teacher> ls = null;
         String sql = "select * from teachers;";
         Teacher objc = new Teacher();
         ls = objc.consultarProfesores(sql);
+        return ls;
+    }
+      public LinkedList<ProfesorCursoAsignatura> consultarPCA(String text) {
+        LinkedList<ProfesorCursoAsignatura> ls = null;
+        String sql = "SELECT * FROM escuela.profesorcursoasignatura;";
+        Teacher objc = new Teacher();
+        ls = objc.buscarProfeCursoAsig(sql);
         return ls;
     }
     
@@ -62,4 +78,5 @@ public class ControladorTeacher {
         E = objbd.ejecutarSQL(sql);
         return E;
     }
+    
 }

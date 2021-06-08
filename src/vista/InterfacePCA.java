@@ -5,6 +5,7 @@
  */
 package vista;
 
+import controlador.ControladorTeacher;
 import java.util.LinkedList;
 import javax.swing.table.DefaultTableModel;
 import modelo.ProfesorCursoAsignatura;
@@ -15,7 +16,7 @@ import modelo.Teacher;
  * @author wild.chamo
  */
 public class InterfacePCA extends javax.swing.JFrame {
-
+       
     /**
      * Creates new form InterfacePCA
      */
@@ -123,9 +124,8 @@ public class InterfacePCA extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         
-        Teacher objt= new Teacher ();
-        String sql= "SELECT * FROM escuela.profesorcursoasignatura;";
-        LinkedList<ProfesorCursoAsignatura> PCA = objt.buscarProfeCursoAsig(sql);
+        ControladorTeacher CT= new ControladorTeacher();
+        LinkedList<ProfesorCursoAsignatura> PCA = CT.consultarPCA();
         
           for (int i = 0; i < PCA.size(); i++) {
             ProfesorCursoAsignatura get = PCA.get(i);

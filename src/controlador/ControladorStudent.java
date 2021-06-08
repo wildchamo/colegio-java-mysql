@@ -9,6 +9,7 @@ import java.util.LinkedList;
 import modelo.BaseDatos;
 import modelo.NotasEstudiante;
 import modelo.Student;
+import modelo.vistaEstudianteCurso;
 
 /**
  *
@@ -47,6 +48,13 @@ public class ControladorStudent {
         Student student =objbd.ejecutarSQLQ(sql);
         return student;
         
+    }
+           public LinkedList<vistaEstudianteCurso> consultarVEC() {
+        LinkedList<vistaEstudianteCurso> ls = null;
+        String sql = "SELECT * FROM escuela.consultarestudiantescursos;";
+        Student objs = new Student();
+        ls = objs.buscarEstudianteCurso(sql);
+        return ls;
     }
     
          public LinkedList<NotasEstudiante> MostrarNotas(int idEstudiante) {
